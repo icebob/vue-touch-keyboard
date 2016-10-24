@@ -1,5 +1,5 @@
 <template lang="jade">
-	input.input(type="text")
+	input.input(type="text", @focus="show")
 	vue-touch-keyboard#keyboard(v-if="visible", :layouts="layouts", :hide="hide", :input="input")
 
 </template>
@@ -25,8 +25,13 @@
 
 		methods: {
 			hide() {
-				this.keyboard.visible = false;
-			},			 
+				this.visible = false;
+			},	
+
+			show() {
+				if (!this.visible)
+					this.visible = true
+			}		 
 		},
 		
 		ready() {
@@ -46,7 +51,7 @@
 
 	html {
 		font-family: "Arial", sans-serif;
-		font-size: 14px;
+		font-size: 16px;
 	}
 
 	* {

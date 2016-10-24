@@ -8,10 +8,6 @@
 </template>
 
 <script>
-	import Vue from "vue";
-	import {each, isFunction, isNil, isArray, isString} from "lodash";
-	import Layouts from "./layouts";
-
 	export default {
 		props: [
 			"keyboardText",
@@ -31,7 +27,7 @@
 
 		computed: {
 			keyboardLayout() {
-				return this.layouts[this.currentLayout || "default"]
+				return this.layouts[this.currentLayout || "default"];
 			}			
 		},
 
@@ -74,7 +70,7 @@
 			clickKey(key) {
 				let selStart = -1;
 				if (this.input) {
-					selStart = this.input.selectionStart
+					selStart = this.input.selectionStart;
 				}
 				let addChar = null;
 				if (typeof key == "object") {
@@ -83,43 +79,45 @@
 					}
 					else if (key.func) {
 						switch(key.func) {
-							case "backspace":
-								let kbt = this.keyboardText;
-								if (this.input) {
-									this.keyboardText = kbt.substring(0, selStart - 1) + kbt.substring(selStart)
-									selStart -= 1;
-								}
-								else {
-									this.keyboardText = kbt.length ? kbt.substring(0, kbt.length - 1) : kbt;
-								}
-								break;
-
-							case "accept":
-								if (this.accept)
-									this.accept(this.keyboardText);
-								return;
-
-							case "cancel":
-								if (this.cancel)
-									this.cancel();
-								return;
-
-							case "hide":
-								if (this.hide)
-									this.hide();
-								return;
+						case "backspace": {
+							let kbt = this.keyboardText;
+							if (this.input) {
+								this.keyboardText = kbt.substring(0, selStart - 1) + kbt.substring(selStart);
+								selStart -= 1;
+							}
+							else {
+								this.keyboardText = kbt.length ? kbt.substring(0, kbt.length - 1) : kbt;
+							}
+							break;
+						}
+						case "accept": {
+							if (this.accept)
+								this.accept(this.keyboardText);
+							return;
+						}
+						case "cancel": {
+							if (this.cancel)
+								this.cancel();
+							return;
+						}
+						case "hide": {
+							if (this.hide)
+								this.hide();
+							return;
+						}
 						}
 					} else {
-							addChar = key.key;
+						addChar = key.key;
 					}
+
 				} else {
-						addChar = key;
+					addChar = key;
 				}
 
 				if (this.input) {
 					if (addChar) {
-						let e = document.createEvent('Event'); 
-						e.initEvent('keypress', true, true); 
+						let e = document.createEvent("Event"); 
+						e.initEvent("keypress", true, true); 
 						e.keyCode = addChar.charCodeAt();
 						e.which = e.keyCode;
 						if (this.input.dispatchEvent(e)) {
@@ -146,9 +144,10 @@
 			setFocusToInput(selStart) {
 				if (this.input) {
 					this.input.focus();
-					if (selStart)
+					if (selStart) {
 						this.input.selectionStart = selStart;
 						this.input.selectionEnd = selStart;
+					}
 				}
 			}			
 		},
@@ -166,9 +165,9 @@
 <style lang="sass">
 		
 	$width: 40;
-	$height: 40px;
-	$margin: 5px;
-	$radius: 10px;
+	$height: 2.2em;
+	$margin: 0.5em;
+	$radius: 0.625em;
 
 	.vue-touch-keyboard {
 
@@ -205,7 +204,7 @@
 				box-shadow: 0px 2px 2px rgba(0, 0, 0, .6);
 				border-radius: $radius;
 
-				font-size: 20px;
+				font-size: 1.25em;
 				text-align: center;
 				white-space: nowrap;
 				user-select: none;

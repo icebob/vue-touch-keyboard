@@ -1,4 +1,4 @@
-let component = require("./keyboard.vue") 
+let component = require("./keyboard.vue");
 
 module.exports = {
 	component,
