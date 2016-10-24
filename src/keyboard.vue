@@ -29,16 +29,21 @@
 
 		computed: {
 			keySet() {
-				if (isString(this.layout))
-					return Layouts[this.layout][this.currentKeySet];
-				else 
-					return this.layout[this.currentKeySet];
+				return this.getLayout()[this.currentKeySet];
 			}			
 		},
 
 		methods: {
+			getLayout() {
+				if (isString(this.layout))
+					return Layouts[this.layout];
+
+				return this.layout;
+			},
+			
 			changeKeySet(name) {
-				if (this.layout[name] != null)
+				let layout = this.getLayout();
+				if (layout[name] != null)
 					this.currentKeySet = name;
 			},
 			
