@@ -8,22 +8,22 @@ module.exports = {
 		default: [
 			['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
 			['', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ''],
-			[{ layout: 'shifted', text: 'ABC'}, 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.'],
-			[{ layout: 'numbers', text: '123'}, '-', { key: ' ', text: 'Space', classes: 'space'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'hide', text: 'Close'}]
+			[{ keySet: 'shifted', text: 'ABC'}, 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.'],
+			[{ keySet: 'numbers', text: '123'}, '-', { key: ' ', text: 'Space', classes: 'space'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'cancel', text: 'Close'}]
 		],
 
 		shifted: [
 			['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 			['', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',''],
-			[{ layout: 'default', text: 'abc'}, 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ','],
-			[{ layout: 'numbers', text: '123'}, '_', { key: ' ', text: 'Space', classes: 'space'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'hide', text: 'Close'}]
+			[{ keySet: 'default', text: 'abc'}, 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ','],
+			[{ keySet: 'numbers', text: '123'}, '_', { key: ' ', text: 'Space', classes: 'space'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'cancel', text: 'Close'}]
 		],
 
 		numbers: [
 			['1', '2', '3'],
 			['4', '5', '6'],
 			['7', '8', '9'],
-			['', '', { layout: 'default', text: 'Abc'}, '.', { key: '0', classes: 'zero'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'hide', text: 'Close'}]
+			['', '', { keySet: 'default', text: 'Abc'}, '.', { key: '0', classes: 'zero'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'cancel', text: 'Close'}]
 		]
 	},
 
@@ -32,7 +32,7 @@ module.exports = {
 			['1', '2', '3'],
 			['4', '5', '6'],
 			['7', '8', '9'],
-			['_', '-', '.', { key: '0', classes: 'zero'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'hide', text: 'Close'}]
+			['_', '-', '.', { key: '0', classes: 'zero'}, { func: 'backspace', classes: 'fa fa-arrow-left'}, { func: 'accept', text: 'Accept', classes: 'featured'}, { func: 'cancel', text: 'Close'}]
 		]
 	},
 

@@ -1,53 +1,49 @@
 <template lang="jade">
 	div.vue-touch-keyboard
-		input(type="text", v-model="keyboardText", v-if="!input")
+		// input(type="text", v-model="keyboardText", v-if="!input")
 		.keyboard
-			.line(v-for="line in keyboardLayout", track-by="$index")
+			.line(v-for="line in keySet", track-by="$index")
 				span(v-for="key in line", track-by="$index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="clickKey(key)")
 
 </template>
 
 <script>
+	import Layouts from "./layouts";
+	import isString from "lodash/isString";
+
 	export default {
 		props: [
 			"keyboardText",
-			"layouts",
-			"input",
+			"layout",
 			"accept",
 			"cancel",
-			"hide",
-			"change"
+			"change",
+			"input"
 		],
 		
 		data () {
 			return {
-				currentLayout: "default"
+				currentKeySet: "default"
 			};
 		},
 
 		computed: {
-			keyboardLayout() {
-				return this.layouts[this.currentLayout || "default"];
+			keySet() {
+				if (isString(this.layout))
+					return Layouts[this.layout][this.currentKeySet];
+				else 
+					return this.layout[this.currentKeySet];
 			}			
 		},
 
-		watch: {
-			input() {
-				if (this.input) {
-					this.keyboardText = this.input.value;
-					this.setFocusToInput();
-				}
-			}
-		},
-
 		methods: {
-			changeLayout(name) {
-				if (this.layouts[name] != null)
-					this.currentLayout = name;
+			changeKeySet(name) {
+				if (this.layout[name] != null)
+					this.currentKeySet = name;
 			},
 			
-			toggleLayout(name) {
-				this.currentLayout = this.currentLayout == name ? "default" : name;
+			toggleKeySet(name) {
+				this.currentKeySet = this.currentKeySet == name ? "default" : name;
 			},
 			
 			getCaptionOfKey(key) {
@@ -74,8 +70,8 @@
 				}
 				let addChar = null;
 				if (typeof key == "object") {
-					if (key.layout) {
-						this.changeLayout(key.layout);
+					if (key.keySet) {
+						this.changeKeySet(key.keySet);
 					}
 					else if (key.func) {
 						switch(key.func) {
@@ -98,11 +94,6 @@
 						case "cancel": {
 							if (this.cancel)
 								this.cancel();
-							return;
-						}
-						case "hide": {
-							if (this.hide)
-								this.hide();
 							return;
 						}
 						}
@@ -130,7 +121,7 @@
 								this.change(this.keyboardText, addChar);
 						}
 
-						if (this.currentLayout == "shifted")
+						if (this.currentKeySet == "shifted")
 							this.changeLayout("default");
 					}
 					else {

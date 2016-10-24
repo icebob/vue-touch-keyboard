@@ -1,6 +1,6 @@
 <template lang="jade">
 	input.input(type="text", @focus="show")
-	vue-touch-keyboard#keyboard(v-if="visible", :layouts="layouts", :hide="hide", :input="input")
+	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
 
 </template>
 
@@ -17,9 +17,9 @@
 		data() {
 			return {
 				visible: false,
-				layouts: VueTouchKeyboard.layouts["alphaNumeric-mini"],
-				input: null,
-				accept: null				
+				//layout: VueTouchKeyboard.layouts["alphaNumeric-mini"],
+				layout: "alphaNumeric-mini",
+				input: null				
 			}
 		},
 
@@ -27,6 +27,11 @@
 			hide() {
 				this.visible = false;
 			},	
+
+			accept(text) {
+				alert("Input text: " + text);
+				this.hide();
+			},
 
 			show() {
 				if (!this.visible)
