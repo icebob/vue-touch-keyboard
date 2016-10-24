@@ -1,5 +1,6 @@
 <template lang="jade">
-	vue-touch-keyboard()
+	input.input(type="text")
+	vue-touch-keyboard#keyboard(v-if="visible", :layouts="layouts", :hide="hide", :input="input")
 
 </template>
 
@@ -15,16 +16,25 @@
 
 		data() {
 			return {
-				
+				visible: false,
+				layouts: VueTouchKeyboard.layouts["alphaNumeric-mini"],
+				input: null,
+				accept: null				
 			}
 		},
 
 		methods: {
-			 
+			hide() {
+				this.keyboard.visible = false;
+			},			 
 		},
 		
 		ready() {
 			window.app = this;
+			this.$nextTick(() => {
+				this.input = document.querySelector("input.input");
+				this.visible = true;
+			});
 		}
 	}
 
@@ -44,5 +54,23 @@
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
+
+	#keyboard {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		z-index: 1000;
+		max-width: 1000px;
+		margin: 0 auto;
+
+		padding: 1em;
+
+		background-color: #EEE;
+		box-shadow: 0px -3px 10px rgba(black, 0.3);
+
+		border-radius: 10px;
+	}	
 
 </style>
