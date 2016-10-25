@@ -1,21 +1,25 @@
 <template lang="jade">
-	.content
+	.content(:class="{ hasKeyboard: visible }")
 		fieldset
 			legend Layouts
 			select#layoutSelector(v-model="layout")
 				option(v-for="layout in allLayouts", :value="$key") {{ $key }}
 
 		fieldset
-			legend Normal input
-			input#text.input(type="text", placeholder="Normal text input", @focus="show", data-layout="normal", :options="options")
+			legend Normal layout
+			input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal", :options="options")
 
 		fieldset
-			legend Number input
-			input#number.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric")
+			legend Compact layout
+			input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact")
 
 		fieldset
-			legend Password input
-			input#password.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
+			legend Numeric layout
+			input.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric")
+
+		fieldset
+			legend Password with compact layout
+			input.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
 
 	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
 
@@ -50,7 +54,7 @@
 			},	
 
 			accept(text) {
-				alert("Input text: " + text);
+				//alert("Input text: " + text);
 				this.hide();
 			},
 
@@ -60,6 +64,10 @@
 
 				this.input = e.target;
 				this.layout = e.target.dataset.layout;
+
+				this.$nextTick(() => {
+					this.input.scrollIntoView();
+				});				
 			}		 
 		},
 		
@@ -92,6 +100,13 @@
 
 	.content {
 		text-align: center;
+		position: absolute;
+		left: 0; right: 0; top: 0; bottom: 0;
+		overflow: auto;
+
+		&.hasKeyboard {
+			bottom: 18em;
+		}
 	}
 
 	#keyboard {
