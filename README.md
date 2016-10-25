@@ -19,6 +19,7 @@ Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Dis
 
 ## Features
 - multiple layout
+- no dependencies
 - full responsive
 - customizable styles
 - ...etc
@@ -39,13 +40,14 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
 ```html
 <template>
   <div>
-    <input type="text" placeholder="Text input" @focus="showKeyboard" data-layout="normal" />
+    <input type="text" placeholder="Text input" @focus="show" data-layout="normal" />
     <vue-touch-keyboard v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input" />
   </div>
 </template>
 
 <script>
   import VueTouchKeyboard from "vue-touch-keyboard";
+  import style from "vue-touch-keyboard/dist/vue-touch-keyboard.css"; // load default style
 
   Vue.use(VueTouchKeyboard);
 
