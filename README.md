@@ -86,12 +86,18 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
 ## Properties
 Property      | Default  | Accepted values | Description
 ------------- | -------- | --------------- | -----------
-`input`     | `null`  | `HTMLInputElement`   |
-`layout`    | `null`  | `String` or `Object`    | 
-`accept`    | `null`  | `Function`     | 
-`cancel`    | `null`  | `Function`     | 
-`change`    | `null`  | `Function`     | 
-`options`   | `{}`    | `Object`     | 
+`input`     | required  | `HTMLInputElement`   | The target input HTML element
+`layout`    | required  | `String` or `Object`    | Layout of keys. If you are using the built-in layouts, you can set as the name of the layout. If you want to use custom layout, you need to set a layout `Object`.
+`accept`    | `null`  | `Function`     | Event handler. Fired when the "Accept/Close" button pressed.
+`cancel`    | `null`  | `Function`     | Event handler. Fired when the "Cancel" button pressed.
+`change`    | `null`  | `Function`     | Event handler. Fired when the input value changed.
+`next`      | `null`  | `Function`     | Event handler. Fired when the "Next" button pressed or the length of the value of the input reached the `maxLength` of the `input`
+`options`   | `{}`    | `Object`     | Functional options.
+
+## Options
+Option      | Default  | Accepted values | Description
+----------- | -------- | --------------- | -----------
+`useKbEvents`  | `false`  | `boolean`    | If true, the component will generate a `keypress` event and trigger it. If it returns with `false`, it won't insert the new character.
 
 ## Built-in layouts
 * `normal` - Normal full layout. Similar as real keyboard layouts
