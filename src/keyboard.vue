@@ -108,8 +108,13 @@
 			getClassesOfKey(key) {
 				if (key.placeholder)
 					return "placeholder"
-				else 
-					return "key " + (key.classes || "");
+				else {
+					let classes = "key " + (key.classes || "");
+					if (key.keySet && this.currentKeySet == key.keySet)
+						classes += " activated"
+
+					return classes;
+				}
 			},
 
 			getKeyStyle(key) {
@@ -119,15 +124,27 @@
 					}
 			},
 
-			getCaret() {
-				let pos = {
-					start: this.input.selectionStart || 0,
-					end: this.input.selectionEnd || 0
-				}
-				if (pos.end < pos.start)
-					pos.end = pos.start;
+			supportsSelection() {
+ 				return (/text|password|search|tel|url/).test(this.input.type); 
+			},
 
-				return pos
+			getCaret() {
+				if (this.supportsSelection()) {
+					let pos = {
+						start: this.input.selectionStart || 0,
+						end: this.input.selectionEnd || 0
+					}
+					if (pos.end < pos.start)
+						pos.end = pos.start;
+
+					return pos
+				} else {
+					let val = this.input.value;
+					return {
+						start: val.length,
+						end: val.length
+					}
+				}
 			},
 
 			backspace(caret, text) {
@@ -197,7 +214,7 @@
 					}
 
 					if (this.currentKeySet == "shifted")
-						this.changeLayout("default");
+						this.changeKeySet("default");
 				}
 
 				this.input.value = text;
@@ -209,7 +226,7 @@
 			
 			setFocusToInput(caret) {
 				this.input.focus();
-				if (caret) {
+				if (caret && this.supportsSelection()) {
 					this.input.selectionStart = caret.start;
 					this.input.selectionEnd = caret.end;
 				}
@@ -275,6 +292,22 @@
 				cursor: pointer;
 
 
+				&.placeholder {
+					flex: $width / 2;
+					height: $height;
+					line-height: $height;
+				}
+				
+				&.half {
+					flex: $width / 2;
+				}
+							
+				&.featured {
+					color: #fff;
+					background-color: #337ab7;
+					border-color: #2e6da4;
+				}
+
 				&:hover {
 					color: #333;
 					background-color: #e6e6e6;
@@ -287,46 +320,15 @@
 					background-color: #d4d4d4;
 					border-color: #8c8c8c;					
 				}
-				
-			} // span
-			
-			.placeholder {
-				flex: $width / 2;
-				height: $height;
-				line-height: $height;
-			}
-			
-			.half {
-				flex: $width / 2;
-			}
-			
-			.space {
-				flex: 180;
-			}
-			
-			.zero {
-				flex: 120;
-			}
-			
-			.featured {
-				color: #fff;
-				background-color: #337ab7;
-				border-color: #2e6da4;
-			}
 
-			.accept {
-				flex: 80;
-			}
+				&.activated {
+					color: #fff;
+					background-color: #5bc0de;
+					border-color: #46b8da;
+				}
+
+			} // .key
 			
-			.half {
-				flex: $width / 2;
-			}
-			
-			.highlighted {
-				color: #fff;
-				background-color: #337ab7;
-				border-color: #2e6da4;
-			}
 			
 			&:before,
 			&:after {

@@ -2,7 +2,9 @@
 	select.layoutSelector(v-model="layout")
 		option(v-for="layout in allLayouts", :value="$key") {{ $key }}
 
-	input.input(type="text", @focus="show")
+	input.input(type="text", @focus="show", data-layout="normal")
+	input.input(type="number", number, @focus="show", data-layout="numeric")
+	input.input(type="password", @focus="show", data-layout="mini")
 	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
 
 </template>
@@ -22,7 +24,7 @@
 				visible: false,
 				allLayouts: VueTouchKeyboard.layouts,
 				//layout: VueTouchKeyboard.layouts["alphaNumeric-mini"],
-				layout: "alphaNumeric-mini",
+				layout: "mini",
 				input: null				
 			}
 		},
@@ -37,9 +39,12 @@
 				this.hide();
 			},
 
-			show() {
+			show(e) {
 				if (!this.visible)
 					this.visible = true
+
+				this.input = e.target;
+				this.layout = e.target.dataset.layout;
 			}		 
 		},
 		

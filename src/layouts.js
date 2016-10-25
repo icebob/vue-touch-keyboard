@@ -3,14 +3,52 @@
 
 module.exports = {
 
-	'alphaNumeric-mini': {
+	'normal': {
+
+		_meta: {
+			"tab": { key: '\t', text: 'Tab', width: 60},
+			"shiftl": { keySet: 'shifted', text: 'Shift', width: 50},
+			"shiftr": { keySet: 'shifted', text: 'Shift', width: 80},
+			"caps": { keySet: 'capsed', text: 'Caps lock', width: 80},
+			"space": { key: ' ', text: 'Space', width: 180},
+			"enter": { key: '\r\n', text: 'Enter', width: 80},
+			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
+			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
+			"cancel": { func: 'cancel', text: 'Close'}
+		},
+
+		default: [
+			['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '{backspace}'],
+			['{tab}', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
+			['{caps}', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '{enter}'],
+			['{shiftl}', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '{shiftr}'],
+			['{space}', '{accept}', '{cancel}']
+		],
+		shifted: [
+			['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{backspace}'],
+			['{tab}', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|'],
+			['{caps}', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '{enter}'],
+			['{shiftl}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '{shiftr}'],
+			['{space}', '{accept}', '{cancel}']
+		],
+		
+		capsed: [
+			['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '{backspace}'],
+			['{tab}', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\'],
+			['{caps}', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', '{enter}'],
+			['{shiftl}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '{shiftr}'], 
+			['{space}', '{accept}', '{cancel}']
+		]		
+	},
+
+	'mini': {
 
 		_meta: {
 			"default": { keySet: 'default', text: 'abc'},
 			"alpha": { keySet: 'default', text: 'Abc'},
 			"shift": { keySet: 'shifted', text: 'ABC'},
 			"numbers": { keySet: 'numbers', text: '123'},
-			"space": { key: ' ', text: 'Space', classes: 'space'},
+			"space": { key: ' ', text: 'Space', width: 180},
 			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
 			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
 			"cancel": { func: 'cancel', text: 'Close'}
@@ -43,50 +81,16 @@ module.exports = {
 		_meta: {
 			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
 			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
-			"cancel": { func: 'cancel', text: 'Close'}
+			"cancel": { func: 'cancel', text: 'Close'},
+			"zero": { key: '0', width: 130}
 		},
 
 		default: [
 			['1', '2', '3'],
 			['4', '5', '6'],
 			['7', '8', '9'],
-			['_', '-', '.', { key: '0', classes: 'zero'}, '{backspace}', '{accept}', '{cancel}']
+			['_', '-', '.', '{zero}', '{backspace}', '{accept}', '{cancel}']
 		]
-	},
-
-	'alphaNumeric-full': {
-
-		_meta: {
-			"shift": { keySet: 'shifted', text: 'Shift'},
-			"caps": { keySet: 'capsed', text: 'Caps Lock'},
-			"space": { key: ' ', text: 'Space', classes: 'space'},
-			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
-			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
-			"cancel": { func: 'cancel', text: 'Close'}
-		},
-
-		default: [
-			['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '{backspace}'],
-			[{ key: '\t', text: 'Tab'}, 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
-			['{caps}', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter'],
-			['{shift}', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '{shift}'],
-			['{space}']
-		],
-		shifted: [
-			['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{backspace}'],
-			['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|'],
-			['{caps}', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter'],
-			['{shift}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '{shift}'],
-			['{space}']
-		],
-		
-		capsed: [
-			['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '{backspace}'],
-			['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\'],
-			['{caps}', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', 'Enter'],
-			['{shift}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '{shift}'], 
-			['{space}']
-		]		
 	}
 
 };
