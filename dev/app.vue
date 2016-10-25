@@ -1,10 +1,22 @@
 <template lang="jade">
-	select.layoutSelector(v-model="layout")
-		option(v-for="layout in allLayouts", :value="$key") {{ $key }}
+	.content
+		fieldset
+			legend Layouts
+			select#layoutSelector(v-model="layout")
+				option(v-for="layout in allLayouts", :value="$key") {{ $key }}
 
-	input.input(type="text", @focus="show", data-layout="normal")
-	input.input(type="number", number, @focus="show", data-layout="numeric")
-	input.input(type="password", @focus="show", data-layout="mini")
+		fieldset
+			legend Normal input
+			input#text.input(type="text", placeholder="Normal text input", @focus="show", data-layout="normal", :options="options")
+
+		fieldset
+			legend Number input
+			input#number.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric")
+
+		fieldset
+			legend Password input
+			input#password.input(type="password", placeholder="Password input", @focus="show", data-layout="mini")
+
 	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
 
 </template>
@@ -25,7 +37,10 @@
 				allLayouts: VueTouchKeyboard.layouts,
 				//layout: VueTouchKeyboard.layouts["alphaNumeric-mini"],
 				layout: "mini",
-				input: null				
+				input: null,
+				options: {
+					useKbEvents: true
+				}			
 			}
 		},
 
@@ -51,8 +66,9 @@
 		ready() {
 			window.app = this;
 			this.$nextTick(() => {
-				this.input = document.querySelector("input.input");
-				this.visible = true;
+				this.input = document.querySelector("input#text");
+				this.input.focus();
+				//this.visible = true;
 			});
 		}
 	}
@@ -74,6 +90,10 @@
 		box-sizing: border-box;
 	}
 
+	.content {
+		text-align: center;
+	}
+
 	#keyboard {
 		position: fixed;
 		left: 0;
@@ -92,5 +112,39 @@
 
 		border-radius: 10px;
 	}	
+
+	fieldset {
+		display: block;
+		width: 300px;
+		padding: 15px;
+		margin: 15px auto;
+		border-style: solid;
+		background-color: #fff;
+		border-color: #ddd;
+		border-width: 1px;
+		border-radius: 4px;	
+	}
+
+	input.input, select#layoutSelector {
+		display: block;
+		width: 100%;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;		
+
+		&:focus {
+			border-color: #66afe9;
+			outline: 0;
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);			
+		}
+	}
 
 </style>

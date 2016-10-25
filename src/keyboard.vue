@@ -203,7 +203,7 @@
 
 				if (addChar) {
 					if (this.options.useKbEvents) {
-						let e = document.createEvent("Event"); 
+						let e = document.createEvent("KeyboardEvent"); 
 						e.initEvent("keypress", true, true); 
 						e.which = e.keyCode = addChar.charCodeAt();
 						if (this.input.dispatchEvent(e)) {
