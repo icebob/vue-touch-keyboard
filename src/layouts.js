@@ -18,26 +18,26 @@ module.exports = {
 		},
 
 		default: [
-			['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '{backspace}'],
-			['{tab}', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
-			['{caps}', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '{enter}'],
-			['{shiftl}', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '{shiftr}'],
-			['{space}', '{accept}', '{cancel}']
+			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
+			"{tab} q w e r t y u i o p [ ] \\",
+			"{caps} a s d f g h j k l ; ' {enter}",
+			"{shiftl} z x c v b n m  . / {shiftr}",
+			"{space} {accept} {cancel}"
 		],
 		shifted: [
-			['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{backspace}'],
-			['{tab}', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|'],
-			['{caps}', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '{enter}'],
-			['{shiftl}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '{shiftr}'],
-			['{space}', '{accept}', '{cancel}']
+			"~ ! @ # $ % ^ & * ( ) _ + {backspace}",
+			"{tab} Q W E R T Y U I O P { } |",
+			"{caps} A S D F G H J K L : \" {enter}",
+			"{shiftl} Z X C V B N M < > ? {shiftr}",
+			"{space} {accept} {cancel}"
 		],
 		
 		capsed: [
-			['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '{backspace}'],
-			['{tab}', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\'],
-			['{caps}', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', '{enter}'],
-			['{shiftl}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '{shiftr}'], 
-			['{space}', '{accept}', '{cancel}']
+			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
+			"{tab} Q W E R T Y U I O P [ ] \\",
+			"{caps} A S D F G H J K L ; ' {enter}",
+			"{shiftl} Z X C V B N M  . / {shiftr}", 
+			"{space} {accept} {cancel}"
 		]		
 	},
 
@@ -55,24 +55,24 @@ module.exports = {
 		},
 
 		default: [
-			['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-			['', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ''],
-			['{shift}', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.'],
-			['{numbers}', '-', '{space}', '{backspace}', '{accept}', '{cancel}']
+			"q w e r t y u i o p",
+			" a s d f g h j k l ",
+			"{shift} z x c v b n m .",
+			"{numbers} - {space} {backspace} {accept} {cancel}"
 		],
 
 		shifted: [
-			['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-			['', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',''],
-			['{default}', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ','],
-			['{numbers}', '_', '{space}', '{backspace}', '{accept}', '{cancel}']
+			"Q W E R T Y U I O P",
+			" A S D F G H J K L",
+			"{default} Z X C V B N M ",
+			"{numbers} _ {space} {backspace} {accept} {cancel}"
 		],
 
 		numbers: [
-			['1', '2', '3'],
-			['4', '5', '6'],
-			['7', '8', '9'],
-			['', '', '{alpha}', '.', { key: '0', classes: 'zero'}, '{backspace}', '{accept}', '{cancel}']
+			"1 2 3",
+			"4 5 6",
+			"7 8 9",
+			"  {alpha} . { key: 0 classes: zero}, {backspace} {accept} {cancel}"
 		]
 	},
 
@@ -86,10 +86,10 @@ module.exports = {
 		},
 
 		default: [
-			['1', '2', '3'],
-			['4', '5', '6'],
-			['7', '8', '9'],
-			['_', '-', '.', '{zero}', '{backspace}', '{accept}', '{cancel}']
+			"1 2 3",
+			"4 5 6",
+			"7 8 9",
+			"_ - . {zero} {backspace} {accept} {cancel}"
 		]
 	}
 

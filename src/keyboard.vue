@@ -47,7 +47,7 @@
 
 				keyset.forEach((line) => {
 					let row = [];
-					line.forEach((item) => {
+					line.split(" ").forEach((item) => {
 						if (isObject(item)) {
 							row.push(item);
 						}
@@ -292,12 +292,7 @@
 				cursor: pointer;
 
 
-				&.placeholder {
-					flex: $width / 2;
-					height: $height;
-					line-height: $height;
-				}
-				
+			
 				&.half {
 					flex: $width / 2;
 				}
@@ -328,6 +323,12 @@
 				}
 
 			} // .key
+
+			.placeholder {
+				flex: $width / 2;
+				height: $height;
+				line-height: $height;
+			}
 			
 			
 			&:before,
