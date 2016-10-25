@@ -1,10 +1,10 @@
 # vue-touch-keyboard [![NPM version](https://img.shields.io/npm/v/vue-touch-generator.svg)](https://www.npmjs.com/package/vue-touch-generator)
 Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Display
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/912039aa815e40de8315032519aa7e6c)](https://www.codacy.com/app/mereg-norbert/vue-touch-keyboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=icebob/vue-touch-keyboard&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f3594b30dd4489094730fa2babd7ba5)](https://www.codacy.com/app/mereg-norbert/vue-touch-keyboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=icebob/vue-touch-keyboard&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/icebob/vue-touch-keyboard.svg?branch=master)](https://travis-ci.org/icebob/vue-touch-keyboard)
 [![Coverage Status](https://coveralls.io/repos/github/icebob/vue-touch-keyboard/badge.svg?branch=master)](https://coveralls.io/github/icebob/vue-touch-keyboard?branch=master)
-[![NPMS.io score](https://badges.npms.io/cross-spawn.svg)]()
+[![NPMS.io score](https://badges.npms.io/vue-touch-keyboard.svg)]()
 
 [![Dependency Status](https://david-dm.org/icebob/vue-touch-keyboard.svg)](https://david-dm.org/icebob/vue-touch-keyboard)
 [![devDependency Status](https://david-dm.org/icebob/vue-touch-keyboard/dev-status.svg)](https://david-dm.org/icebob/vue-touch-keyboard#info=devDependencies)
