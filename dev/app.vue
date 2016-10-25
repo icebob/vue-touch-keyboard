@@ -1,4 +1,7 @@
 <template lang="jade">
+	select.layoutSelector(v-model="layout")
+		option(v-for="layout in allLayouts", :value="$key") {{ $key }}
+
 	input.input(type="text", @focus="show")
 	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
 
@@ -17,6 +20,7 @@
 		data() {
 			return {
 				visible: false,
+				allLayouts: VueTouchKeyboard.layouts,
 				//layout: VueTouchKeyboard.layouts["alphaNumeric-mini"],
 				layout: "alphaNumeric-mini",
 				input: null				
@@ -72,6 +76,7 @@
 		bottom: 0;
 
 		z-index: 1000;
+		width: 100%;
 		max-width: 1000px;
 		margin: 0 auto;
 

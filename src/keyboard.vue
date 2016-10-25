@@ -3,22 +3,31 @@
 		// input(type="text", v-model="keyboardText", v-if="!input")
 		.keyboard
 			.line(v-for="line in keySet", track-by="$index")
-				span(v-for="key in line", track-by="$index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="clickKey(key)")
+				span(v-for="key in line", track-by="$index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="clickKey(key)", :style="getKeyStyle(key)")
 
 </template>
 
 <script>
 	import Layouts from "./layouts";
 	import isString from "lodash/isString";
+	import isObject from "lodash/isObject";
 
 	export default {
-		props: [
-			"layout",
-			"accept",
-			"cancel",
-			"change",
-			"input"
-		],
+		props: {
+			input: HTMLInputElement,
+			layout: [String, Object],
+
+			accept: Function,
+			cancel: Function,
+			change: Function,
+
+			options: {
+				type: Object,
+				default() {
+					return {};
+				}
+			}
+		},
 		
 		data () {
 			return {
@@ -27,8 +36,50 @@
 		},
 
 		computed: {
+
 			keySet() {
-				return this.getLayout()[this.currentKeySet];
+				let layout = this.getLayout();
+				let keyset = layout[this.currentKeySet];
+
+				let res = []
+
+				let meta = layout["_meta"] || {};
+
+				keyset.forEach((line) => {
+					let row = [];
+					line.forEach((item) => {
+						if (isObject(item)) {
+							row.push(item);
+						}
+						else if (isString(item)) {
+							if (item.length > 2 && item[0] == "{" && item[item.length- 1] == "}") {
+								let name = item.substring(1, item.length - 1);
+								if (meta[name])
+									row.push(meta[name])
+								else
+									console.warn("Missing named key from meta: " + name);
+							} else {
+								if (item == "") {
+									// Placeholder
+									row.push({
+										placeholder: true
+									});
+									
+								} else {
+									// Normal key
+									row.push({
+										key: item,
+										text: item
+									});
+								}
+							}
+						}
+					});
+					res.push(row);
+				});
+
+				console.log(res);
+				return res;
 			}			
 		},
 
@@ -51,20 +102,21 @@
 			},
 			
 			getCaptionOfKey(key) {
-				if (typeof key == "object") {
-					return key.text || key.key || "";
-				}
-				return key;
+				return key.text || key.key || "";
 			},
 			
 			getClassesOfKey(key) {
-				if (typeof key == "object")
+				if (key.placeholder)
+					return "placeholder"
+				else 
 					return "key " + (key.classes || "");
-				
-				if (key == "")
-					return "ph";
-				
-				return "key";
+			},
+
+			getKeyStyle(key) {
+				if (key.width) 
+					return {
+						flex: key.width
+					}
 			},
 
 			getCaret() {
@@ -101,7 +153,7 @@
 				let addChar = null;
 				if (typeof key == "object") {
 					if (key.keySet) {
-						this.changeKeySet(key.keySet);
+						this.toggleKeySet(key.keySet);
 					}
 					else if (key.func) {
 						switch(key.func) {
@@ -133,10 +185,14 @@
 				}
 
 				if (addChar) {
-					let e = document.createEvent("Event"); 
-					e.initEvent("keypress", true, true); 
-					e.which = e.keyCode = addChar.charCodeAt();
-					if (this.input.dispatchEvent(e)) {
+					if (this.options.useKbEvents) {
+						let e = document.createEvent("Event"); 
+						e.initEvent("keypress", true, true); 
+						e.which = e.keyCode = addChar.charCodeAt();
+						if (this.input.dispatchEvent(e)) {
+							text = this.insertChar(caret, text, addChar);
+						}
+					} else {
 						text = this.insertChar(caret, text, addChar);
 					}
 
@@ -203,6 +259,7 @@
 				//width: $btnW;
 				height: $height;
 				line-height: $height;
+				overflow: hidden;
 
 				vertical-align: middle;
 				border: 1px solid #ccc;
@@ -233,7 +290,7 @@
 				
 			} // span
 			
-			.ph {
+			.placeholder {
 				flex: $width / 2;
 				height: $height;
 				line-height: $height;
@@ -244,7 +301,7 @@
 			}
 			
 			.space {
-				flex: 200;
+				flex: 180;
 			}
 			
 			.zero {
