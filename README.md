@@ -18,8 +18,8 @@ Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Dis
 [![Screenshot](https://cloud.githubusercontent.com/assets/306521/19689897/2945a008-9acf-11e6-962f-915eddda0cf4.png)](https://jsfiddle.net/icebob/88n7c1L8/)
 
 ## Features
-- multiple layout
-- no dependencies
+- 3 built-in layouts, but you can create custom layouts
+- **no external dependencies**
 - full responsive
 - customizable styles
 - ...etc
@@ -82,6 +82,21 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
   }
 </script>
 ```
+
+## Properties
+Property      | Default  | Accepted values | Description
+------------- | -------- | --------------- | -----------
+`input`     | `null`  | `HTMLInputElement`   |
+`layout`    | `null`  | `String` or `Object`    | 
+`accept`    | `null`  | `Function`     | 
+`cancel`    | `null`  | `Function`     | 
+`change`    | `null`  | `Function`     | 
+`options`   | `{}`    | `Object`     | 
+
+## Built-in layouts
+* `normal` - Normal full layout. Similar as real keyboard layouts
+* `numeric` - Only for numbers
+* `compact` - Compact layout. Similar as mobile phone keyboard layouts
 
 ## Development
 This command will start a `webpack-dev-server` with content of `dev` folder.
