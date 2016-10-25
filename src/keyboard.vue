@@ -39,6 +39,8 @@
 
 			keySet() {
 				let layout = this.getLayout();
+				if (!layout) return;
+				
 				let keySet = layout[this.currentKeySet];
 				if (!keySet) return;
 
@@ -79,7 +81,6 @@
 					res.push(row);
 				});
 
-				console.log(res);
 				return res;
 			}			
 		},
