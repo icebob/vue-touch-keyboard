@@ -220,16 +220,18 @@
 				}
 
 				if (addChar) {
-					if (this.options.useKbEvents) {
-						let e = document.createEvent("Event"); 
-						e.initEvent("keypress", true, true); 
-						e.which = e.keyCode = addChar.charCodeAt();
-						if (this.input.dispatchEvent(e)) {
+					if (this.input.maxLength <= 0 || text.length < this.input.maxLength) {
+						if (this.options.useKbEvents) {
+							let e = document.createEvent("Event"); 
+							e.initEvent("keypress", true, true); 
+							e.which = e.keyCode = addChar.charCodeAt();
+							if (this.input.dispatchEvent(e)) {
+								text = this.insertChar(caret, text, addChar);
+							}
+						} else {
 							text = this.insertChar(caret, text, addChar);
 						}
-					} else {
-						text = this.insertChar(caret, text, addChar);
-					}
+					} 
 
 					if (this.currentKeySet == "shifted")
 						this.changeKeySet("default");
@@ -240,6 +242,13 @@
 
 				if (this.change)
 					this.change(text, addChar);
+
+				if (this.input.maxLength > 0 && text.length >= this.input.maxLength) {
+					// The value reached the maxLength
+					if (this.next)
+						this.next();
+				}
+
 			},
 			
 			setFocusToInput(caret) {
