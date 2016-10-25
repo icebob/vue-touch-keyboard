@@ -4,12 +4,12 @@ module.exports = {
 
 		_meta: {
 			"tab": { key: "\t", text: "Tab", width: 60},
-			"shiftl": { keySet: "shifted", text: "Shift", width: 50},
-			"shiftr": { keySet: "shifted", text: "Shift", width: 80},
+			"shiftl": { keySet: "shifted", text: "Shift", width: 100},
+			"shiftr": { keySet: "shifted", text: "Shift", width: 100},
 			"caps": { keySet: "capsed", text: "Caps lock", width: 80},
 			"space": { key: " ", text: "Space", width: 180},
 			"enter": { key: "\r\n", text: "Enter", width: 80},
-			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
+			"backspace": { func: "backspace", classes: "fa fa-arrow-left", width: 80},
 			"accept": { func: "accept", text: "Close", classes: "featured"}
 		},
 
@@ -18,14 +18,14 @@ module.exports = {
 			"{tab} q w e r t y u i o p [ ] \\",
 			"{caps} a s d f g h j k l ; ' {enter}",
 			"{shiftl} z x c v b n m , . / {shiftr}",
-			"{space} {accept}"
+			"  {space} {accept}"
 		],
 		shifted: [
 			"~ ! @ # $ % ^ & * ( ) _ + {backspace}",
 			"{tab} Q W E R T Y U I O P { } |",
 			"{caps} A S D F G H J K L : \" {enter}",
 			"{shiftl} Z X C V B N M < > ? {shiftr}",
-			"{space} {accept}"
+			"  {space} {accept}"
 		],
 		
 		capsed: [
@@ -33,7 +33,7 @@ module.exports = {
 			"{tab} Q W E R T Y U I O P [ ] \\",
 			"{caps} A S D F G H J K L ; ' {enter}",
 			"{shiftl} Z X C V B N M , . / {shiftr}", 
-			"{space} {accept}"
+			"  {space} {accept}"
 		]		
 	},
 
