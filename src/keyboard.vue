@@ -13,7 +13,6 @@
 
 	export default {
 		props: [
-			"keyboardText",
 			"layout",
 			"accept",
 			"cancel",
@@ -68,11 +67,37 @@
 				return "key";
 			},
 
-			clickKey(key) {
-				let selStart = -1;
-				if (this.input) {
-					selStart = this.input.selectionStart;
+			getCaret() {
+				let pos = {
+					start: this.input.selectionStart || 0,
+					end: this.input.selectionEnd || 0
 				}
+				if (pos.end < pos.start)
+					pos.end = pos.start;
+
+				return pos
+			},
+
+			backspace(caret, text) {
+				text = text.substring(0, caret.start - 1) + text.substring(caret.start);
+				caret.start -= 1;
+				caret.end = caret.start;
+				return text;
+			},
+
+			insertChar(caret, text, ch) {
+				text = text.substr(0, caret.start) + ch.toString() + text.substr(caret.start);
+				caret.start += ch.length;
+				caret.end = caret.start;
+				return text;
+			},
+
+			clickKey(key) {
+				if (!this.input) return;
+
+				let caret = this.getCaret();
+				let text = this.input.value;
+				
 				let addChar = null;
 				if (typeof key == "object") {
 					if (key.keySet) {
@@ -80,27 +105,24 @@
 					}
 					else if (key.func) {
 						switch(key.func) {
+
 						case "backspace": {
-							let kbt = this.keyboardText;
-							if (this.input) {
-								this.keyboardText = kbt.substring(0, selStart - 1) + kbt.substring(selStart);
-								selStart -= 1;
-							}
-							else {
-								this.keyboardText = kbt.length ? kbt.substring(0, kbt.length - 1) : kbt;
-							}
+							text = this.backspace(caret, text)
 							break;
 						}
+
 						case "accept": {
 							if (this.accept)
-								this.accept(this.keyboardText);
+								this.accept(text);
 							return;
 						}
+
 						case "cancel": {
 							if (this.cancel)
 								this.cancel();
 							return;
 						}
+
 						}
 					} else {
 						addChar = key.key;
@@ -110,47 +132,36 @@
 					addChar = key;
 				}
 
-				if (this.input) {
-					if (addChar) {
-						let e = document.createEvent("Event"); 
-						e.initEvent("keypress", true, true); 
-						e.keyCode = addChar.charCodeAt();
-						e.which = e.keyCode;
-						if (this.input.dispatchEvent(e)) {
-							let txt = this.keyboardText;
-							this.keyboardText = txt.substr(0, selStart) + addChar.toString() + txt.substr(selStart);
-							this.input.value = this.keyboardText;
-							selStart += 1;
-
-							if (this.change)
-								this.change(this.keyboardText, addChar);
-						}
-
-						if (this.currentKeySet == "shifted")
-							this.changeLayout("default");
-					}
-					else {
-						this.input.value = this.keyboardText;
+				if (addChar) {
+					let e = document.createEvent("Event"); 
+					e.initEvent("keypress", true, true); 
+					e.which = e.keyCode = addChar.charCodeAt();
+					if (this.input.dispatchEvent(e)) {
+						text = this.insertChar(caret, text, addChar);
 					}
 
-					this.setFocusToInput(selStart);
+					if (this.currentKeySet == "shifted")
+						this.changeLayout("default");
 				}
+
+				this.input.value = text;
+				this.setFocusToInput(caret);
+
+				if (this.change)
+					this.change(text, addChar);
 			},
 			
-			setFocusToInput(selStart) {
-				if (this.input) {
-					this.input.focus();
-					if (selStart) {
-						this.input.selectionStart = selStart;
-						this.input.selectionEnd = selStart;
-					}
+			setFocusToInput(caret) {
+				this.input.focus();
+				if (caret) {
+					this.input.selectionStart = caret.start;
+					this.input.selectionEnd = caret.end;
 				}
 			}			
 		},
 
 		ready() {
 			if (this.input) {
-				this.keyboardText = this.input.value;
 				this.setFocusToInput();
 			}			
 		}
