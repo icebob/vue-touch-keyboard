@@ -20,6 +20,7 @@
 			accept: Function,
 			cancel: Function,
 			change: Function,
+			next: Function,
 
 			options: {
 				type: Object,
@@ -200,6 +201,12 @@
 						case "cancel": {
 							if (this.cancel)
 								this.cancel();
+							return;
+						}
+
+						case "next": {
+							if (this.next)
+								this.next();
 							return;
 						}
 

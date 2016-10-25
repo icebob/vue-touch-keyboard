@@ -11,7 +11,7 @@
 
 		fieldset
 			legend Compact layout
-			input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact")
+			input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact", maxlength="5")
 
 		fieldset
 			legend Numeric layout
@@ -21,7 +21,7 @@
 			legend Password with compact layout
 			input.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
 
-	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input", :options="options")
+	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input", :next="next", :options="options")
 
 </template>
 
@@ -56,6 +56,23 @@
 			accept(text) {
 				//alert("Input text: " + text);
 				this.hide();
+			},
+
+			next() {
+				let inputs = document.querySelectorAll("input");
+				let found = false;
+				[].forEach.call(inputs, (item, i) => {
+					if (!found && item == this.input && i < inputs.length - 1) {
+						found = true;
+						this.$nextTick(() => {
+							inputs[i+1].focus();
+						});
+					}
+				});
+				if (!found) {
+					this.input.blur();
+					this.hide();
+				}
 			},
 
 			show(e) {
