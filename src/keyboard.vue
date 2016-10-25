@@ -335,6 +335,10 @@
 				flex: $width / 2;
 				height: $height;
 				line-height: $height;
+				
+				&:not(:last-child) {
+					margin-right: $margin;
+				}
 			}
 			
 			
