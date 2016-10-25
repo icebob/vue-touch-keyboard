@@ -1,5 +1,5 @@
 <template lang="jade">
-	div.vue-touch-keyboard
+	.vue-touch-keyboard
 		// input(type="text", v-model="keyboardText", v-if="!input")
 		.keyboard
 			.line(v-for="line in keySet", track-by="$index")
@@ -40,6 +40,7 @@
 			keySet() {
 				let layout = this.getLayout();
 				let keySet = layout[this.currentKeySet];
+				if (!keySet) return;
 
 				let res = [];
 
@@ -81,6 +82,13 @@
 				console.log(res);
 				return res;
 			}			
+		},
+
+		watch: {
+			layout() {
+				console.log("Layout changed");
+				this.currentKeySet = "default";
+			}
 		},
 
 		methods: {
@@ -205,7 +213,7 @@
 
 				if (addChar) {
 					if (this.options.useKbEvents) {
-						let e = document.createEvent("KeyboardEvent"); 
+						let e = document.createEvent("Event"); 
 						e.initEvent("keypress", true, true); 
 						e.which = e.keyCode = addChar.charCodeAt();
 						if (this.input.dispatchEvent(e)) {
@@ -252,10 +260,6 @@
 	$radius: 0.625em;
 
 	.vue-touch-keyboard {
-
-		.wrapper {
-			width: 100%;
-		} // .wrapper
 
 		.keyboard {
 			width: 100%;

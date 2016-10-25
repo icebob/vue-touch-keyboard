@@ -10,31 +10,30 @@ module.exports = {
 			"space": { key: " ", text: "Space", width: 180},
 			"enter": { key: "\r\n", text: "Enter", width: 80},
 			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
-			"accept": { func: "accept", text: "Accept", classes: "featured"},
-			"cancel": { func: "cancel", text: "Close"}
+			"accept": { func: "accept", text: "Close", classes: "featured"}
 		},
 
 		default: [
 			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
 			"{tab} q w e r t y u i o p [ ] \\",
 			"{caps} a s d f g h j k l ; ' {enter}",
-			"{shiftl} z x c v b n m  . / {shiftr}",
-			"{space} {accept} {cancel}"
+			"{shiftl} z x c v b n m , . / {shiftr}",
+			"{space} {accept}"
 		],
 		shifted: [
 			"~ ! @ # $ % ^ & * ( ) _ + {backspace}",
 			"{tab} Q W E R T Y U I O P { } |",
 			"{caps} A S D F G H J K L : \" {enter}",
 			"{shiftl} Z X C V B N M < > ? {shiftr}",
-			"{space} {accept} {cancel}"
+			"{space} {accept}"
 		],
 		
 		capsed: [
 			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
 			"{tab} Q W E R T Y U I O P [ ] \\",
 			"{caps} A S D F G H J K L ; ' {enter}",
-			"{shiftl} Z X C V B N M  . / {shiftr}", 
-			"{space} {accept} {cancel}"
+			"{shiftl} Z X C V B N M , . / {shiftr}", 
+			"{space} {accept}"
 		]		
 	},
 
@@ -45,31 +44,31 @@ module.exports = {
 			"alpha": { keySet: "default", text: "Abc"},
 			"shift": { keySet: "shifted", text: "ABC"},
 			"numbers": { keySet: "numbers", text: "123"},
-			"space": { key: " ", text: "Space", width: 180},
+			"space": { key: " ", text: "Space", width: 200},
 			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
-			"accept": { func: "accept", text: "Accept", classes: "featured"},
-			"cancel": { func: "cancel", text: "Close"}
+			"accept": { func: "accept", text: "Close", classes: "featured"},
+			"zero": { key: "0", width: 130}
 		},
 
 		default: [
 			"q w e r t y u i o p",
 			" a s d f g h j k l ",
 			"{shift} z x c v b n m .",
-			"{numbers} - {space} {backspace} {accept} {cancel}"
+			"{numbers} - {space} {backspace} {accept}"
 		],
 
 		shifted: [
 			"Q W E R T Y U I O P",
 			" A S D F G H J K L",
 			"{default} Z X C V B N M ",
-			"{numbers} _ {space} {backspace} {accept} {cancel}"
+			"{numbers} _ {space} {backspace} {accept}"
 		],
 
 		numbers: [
 			"1 2 3",
 			"4 5 6",
 			"7 8 9",
-			"  {alpha} . { key: 0 classes: zero}, {backspace} {accept} {cancel}"
+			"  {alpha} . {zero} {backspace} {accept}  "
 		]
 	},
 
@@ -77,8 +76,7 @@ module.exports = {
 
 		_meta: {
 			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
-			"accept": { func: "accept", text: "Accept", classes: "featured"},
-			"cancel": { func: "cancel", text: "Close"},
+			"accept": { func: "accept", text: "Close", classes: "featured"},
 			"zero": { key: "0", width: 130}
 		},
 
@@ -86,7 +84,7 @@ module.exports = {
 			"1 2 3",
 			"4 5 6",
 			"7 8 9",
-			"_ - . {zero} {backspace} {accept} {cancel}"
+			"_ - . {zero} {backspace} {accept}  "
 		]
 	}
 
