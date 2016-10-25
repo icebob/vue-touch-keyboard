@@ -81,11 +81,9 @@
 		}
 	}
 
-	window.Vue = require('vue');
 </script>
 
 <style lang="sass">
-	//@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Open+Sans+Condensed:300&subset=latin,latin-ext);
 
 	html {
 		font-family: "Arial", sans-serif;
