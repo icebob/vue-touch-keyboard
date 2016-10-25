@@ -39,13 +39,13 @@
 
 			keySet() {
 				let layout = this.getLayout();
-				let keyset = layout[this.currentKeySet];
+				let keySet = layout[this.currentKeySet];
 
 				let res = [];
 
 				let meta = layout["_meta"] || {};
 
-				keyset.forEach((line) => {
+				keySet.forEach((line) => {
 					let row = [];
 					line.split(" ").forEach((item) => {
 						if (isObject(item)) {
