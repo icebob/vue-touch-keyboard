@@ -15,7 +15,7 @@
 
 		fieldset
 			legend Password input
-			input#password.input(type="password", placeholder="Password input", @focus="show", data-layout="mini")
+			input#password.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
 
 	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
 
@@ -35,7 +35,7 @@
 			return {
 				visible: false,
 				allLayouts: VueTouchKeyboard.layouts,
-				//layout: VueTouchKeyboard.layouts["alphaNumeric-mini"],
+				//layout: VueTouchKeyboard.layouts["compact"],
 				layout: "mini",
 				input: null,
 				options: {

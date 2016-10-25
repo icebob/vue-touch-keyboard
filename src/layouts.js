@@ -38,7 +38,7 @@ module.exports = {
 		]		
 	},
 
-	"mini": {
+	"compact": {
 
 		_meta: {
 			"default": { keySet: "default", text: "abc"},
