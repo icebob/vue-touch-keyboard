@@ -1,20 +1,17 @@
-/*eslint quotes: ['error', 'single']*/
-/*eslint-env es6*/
-
 module.exports = {
 
-	'normal': {
+	"normal": {
 
 		_meta: {
-			"tab": { key: '\t', text: 'Tab', width: 60},
-			"shiftl": { keySet: 'shifted', text: 'Shift', width: 50},
-			"shiftr": { keySet: 'shifted', text: 'Shift', width: 80},
-			"caps": { keySet: 'capsed', text: 'Caps lock', width: 80},
-			"space": { key: ' ', text: 'Space', width: 180},
-			"enter": { key: '\r\n', text: 'Enter', width: 80},
-			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
-			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
-			"cancel": { func: 'cancel', text: 'Close'}
+			"tab": { key: "\t", text: "Tab", width: 60},
+			"shiftl": { keySet: "shifted", text: "Shift", width: 50},
+			"shiftr": { keySet: "shifted", text: "Shift", width: 80},
+			"caps": { keySet: "capsed", text: "Caps lock", width: 80},
+			"space": { key: " ", text: "Space", width: 180},
+			"enter": { key: "\r\n", text: "Enter", width: 80},
+			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
+			"accept": { func: "accept", text: "Accept", classes: "featured"},
+			"cancel": { func: "cancel", text: "Close"}
 		},
 
 		default: [
@@ -41,17 +38,17 @@ module.exports = {
 		]		
 	},
 
-	'mini': {
+	"mini": {
 
 		_meta: {
-			"default": { keySet: 'default', text: 'abc'},
-			"alpha": { keySet: 'default', text: 'Abc'},
-			"shift": { keySet: 'shifted', text: 'ABC'},
-			"numbers": { keySet: 'numbers', text: '123'},
-			"space": { key: ' ', text: 'Space', width: 180},
-			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
-			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
-			"cancel": { func: 'cancel', text: 'Close'}
+			"default": { keySet: "default", text: "abc"},
+			"alpha": { keySet: "default", text: "Abc"},
+			"shift": { keySet: "shifted", text: "ABC"},
+			"numbers": { keySet: "numbers", text: "123"},
+			"space": { key: " ", text: "Space", width: 180},
+			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
+			"accept": { func: "accept", text: "Accept", classes: "featured"},
+			"cancel": { func: "cancel", text: "Close"}
 		},
 
 		default: [
@@ -76,13 +73,13 @@ module.exports = {
 		]
 	},
 
-	'numeric': {
+	"numeric": {
 
 		_meta: {
-			"backspace": { func: 'backspace', classes: 'fa fa-arrow-left'},
-			"accept": { func: 'accept', text: 'Accept', classes: 'featured'},
-			"cancel": { func: 'cancel', text: 'Close'},
-			"zero": { key: '0', width: 130}
+			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
+			"accept": { func: "accept", text: "Accept", classes: "featured"},
+			"cancel": { func: "cancel", text: "Close"},
+			"zero": { key: "0", width: 130}
 		},
 
 		default: [

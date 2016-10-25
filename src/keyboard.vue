@@ -41,7 +41,7 @@
 				let layout = this.getLayout();
 				let keyset = layout[this.currentKeySet];
 
-				let res = []
+				let res = [];
 
 				let meta = layout["_meta"] || {};
 
@@ -55,7 +55,7 @@
 							if (item.length > 2 && item[0] == "{" && item[item.length- 1] == "}") {
 								let name = item.substring(1, item.length - 1);
 								if (meta[name])
-									row.push(meta[name])
+									row.push(meta[name]);
 								else
 									console.warn("Missing named key from meta: " + name);
 							} else {
@@ -107,11 +107,11 @@
 			
 			getClassesOfKey(key) {
 				if (key.placeholder)
-					return "placeholder"
+					return "placeholder";
 				else {
 					let classes = "key " + (key.classes || "");
 					if (key.keySet && this.currentKeySet == key.keySet)
-						classes += " activated"
+						classes += " activated";
 
 					return classes;
 				}
@@ -121,11 +121,11 @@
 				if (key.width) 
 					return {
 						flex: key.width
-					}
+					};
 			},
 
 			supportsSelection() {
- 				return (/text|password|search|tel|url/).test(this.input.type); 
+				return (/text|password|search|tel|url/).test(this.input.type); 
 			},
 
 			getCaret() {
@@ -133,17 +133,19 @@
 					let pos = {
 						start: this.input.selectionStart || 0,
 						end: this.input.selectionEnd || 0
-					}
+					};
+
 					if (pos.end < pos.start)
 						pos.end = pos.start;
 
-					return pos
+					return pos;
+
 				} else {
 					let val = this.input.value;
 					return {
 						start: val.length,
 						end: val.length
-					}
+					};
 				}
 			},
 
@@ -176,7 +178,7 @@
 						switch(key.func) {
 
 						case "backspace": {
-							text = this.backspace(caret, text)
+							text = this.backspace(caret, text);
 							break;
 						}
 
