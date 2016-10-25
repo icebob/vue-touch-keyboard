@@ -7,7 +7,7 @@
 
 		fieldset
 			legend Normal layout
-			input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal", :options="options")
+			input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal")
 
 		fieldset
 			legend Compact layout
@@ -21,7 +21,7 @@
 			legend Password with compact layout
 			input.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
 
-	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input")
+	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input", :options="options")
 
 </template>
 
@@ -59,11 +59,11 @@
 			},
 
 			show(e) {
-				if (!this.visible)
-					this.visible = true
-
 				this.input = e.target;
 				this.layout = e.target.dataset.layout;
+
+				if (!this.visible)
+					this.visible = true
 
 				this.$nextTick(() => {
 					this.input.scrollIntoView();
