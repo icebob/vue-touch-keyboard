@@ -9,7 +9,7 @@ module.exports = {
 			"caps": { keySet: "capsed", text: "Caps lock", width: 80, classes: "control"},
 			"space": { key: " ", text: "Space", width: 180},
 			"enter": { key: "\r\n", text: "Enter", width: 80, classes: "control"},
-			"backspace": { func: "backspace", classes: "control backspace", width: 60},
+			"backspace": { func: "backspace", classes: "control backspace", width: 65},
 			"accept": { func: "accept", text: "Close", classes: "control featured"},
 			"next": { func: "next", text: "Next", classes: "control featured"}
 		},

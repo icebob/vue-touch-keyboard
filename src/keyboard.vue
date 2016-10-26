@@ -3,7 +3,7 @@
 		// input(type="text", v-model="keyboardText", v-if="!input")
 		.keyboard
 			.line(v-for="line in keySet", track-by="$index")
-				span(v-for="key in line", track-by="$index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="clickKey(key)", :style="getKeyStyle(key)")
+				span(v-for="key in line", track-by="$index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="clickKey(key)", @mousedown="mousedown", :style="getKeyStyle(key)")
 
 </template>
 
@@ -32,7 +32,9 @@
 		
 		data () {
 			return {
-				currentKeySet: "default"
+				currentKeySet: "default",
+
+				inputScrollLeft: 0
 			};
 		},
 
@@ -173,6 +175,13 @@
 				return text;
 			},
 
+			mousedown() {
+				if (!this.input) return;
+
+				this.inputScrollLeft = this.input.scrollLeft;
+				//console.log("mousedown: ", this.input.scrollLeft, this.input.scrollWidth, this.input.clientWidth);
+			},
+
 			clickKey(key) {
 				if (!this.input) return;
 
@@ -274,7 +283,7 @@
 	$width: 40;
 	$height: 2.2em;
 	$margin: 0.5em;
-	$radius: 0.625em;
+	$radius: 0.35em;
 
 	.vue-touch-keyboard {
 
@@ -345,7 +354,7 @@
 				}
 				
 				&:active {
-					transform: scale(.95);
+					transform: scale(.98); // translateY(1px);
 					color: #333;
 					background-color: #d4d4d4;
 					border-color: #8c8c8c;					
@@ -358,6 +367,43 @@
 				}
 
 			} // .key
+			/*
+			// Apple style
+			.key {
+				color: #aaa;
+				//font: bold 9pt arial;
+				background: #eff0f2;
+				border-radius: 4px;
+				border-top: 1px solid #ddd;
+				box-shadow: 
+					inset 0 0 25px #e8e8e8,
+					0 1px 0 #c3c3c3,
+					0 2px 0 #c9c9c9,
+					0 2px 3px #333;
+				text-shadow: 0px 1px 0px #f5f5f5;
+
+				&.control {
+					box-shadow: 
+						0 1px 0 #c3c3c3,
+						0 2px 0 #c9c9c9,
+						0 2px 3px #333;
+					text-shadow: 0px 1px 0px #777;
+				}
+
+				&:hover {
+					color: #aaa;
+					background-color: inherit;
+					border-color: inherit;
+				}
+
+				&:active {
+					color: #888;
+					background: #ebeced;
+					transform: translateY(3px);
+					box-shadow: inset 0 0 25px #ddd, 0 0 3px #333;
+					border-top: 1px solid #eee;
+				}
+			}*/
 
 			.placeholder {
 				flex: $width / 2;
