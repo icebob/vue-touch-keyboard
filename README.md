@@ -12,6 +12,8 @@ Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Dis
 
 **Vue v2.x is not supported!**
 
+**The project is under heavy development. Not published on NPM. So if you would like to try install with `npm install icebob/vue-touch-keyboard`**
+
 ## Demo
 [JSFiddle demo](https://jsfiddle.net/icebob/88n7c1L8/)
 
