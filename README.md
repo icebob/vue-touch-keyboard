@@ -15,7 +15,7 @@ Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Dis
 ## Demo
 [JSFiddle demo](https://jsfiddle.net/icebob/88n7c1L8/)
 
-[![Screenshot](https://cloud.githubusercontent.com/assets/306521/19689897/2945a008-9acf-11e6-962f-915eddda0cf4.png)](https://jsfiddle.net/icebob/88n7c1L8/)
+[![Screenshot](https://cloud.githubusercontent.com/assets/306521/19721016/d56005bc-9b70-11e6-8568-39dc207bc466.png)
 
 ## Features
 - 3 built-in layouts, but you can create custom layouts
