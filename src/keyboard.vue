@@ -119,7 +119,7 @@
 				if (key.placeholder)
 					return "placeholder";
 				else {
-					let classes = "key " + (key.classes || "");
+					let classes = "key " + (key.func || "") + " " + (key.classes || "");
 					if (key.keySet && this.currentKeySet == key.keySet)
 						classes += " activated";
 
@@ -315,9 +315,21 @@
 				cursor: pointer;
 
 
+				&.backspace {
+					background-image: url("./icons/backspace.svg");
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: 35%;
+				}
 			
 				&.half {
 					flex: $width / 2;
+				}
+
+				&.control {
+					color: #fff;
+					background-color: #7d7d7d;
+					border-color: #656565;
 				}
 							
 				&.featured {
@@ -328,7 +340,7 @@
 
 				&:hover {
 					color: #333;
-					background-color: #e6e6e6;
+					background-color: #d6d6d6;
 					border-color: #adadad;
 				}
 				

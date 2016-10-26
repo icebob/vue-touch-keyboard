@@ -11,9 +11,13 @@ var loaders = [
 		"loader": "babel"
 	},
 	{
-		"test": /\.vue?$/,
+		"test": /\.vue$/,
 		"loader": "vue"
-	}
+	},
+	{ 
+		test: /\.svg$/, 
+		loader: "url" 
+	}	
 ];
 
 module.exports = [

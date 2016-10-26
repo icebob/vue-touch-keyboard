@@ -3,15 +3,15 @@ module.exports = {
 	"normal": {
 
 		_meta: {
-			"tab": { key: "\t", text: "Tab", width: 60},
-			"shiftl": { keySet: "shifted", text: "Shift", width: 100},
-			"shiftr": { keySet: "shifted", text: "Shift", width: 100},
-			"caps": { keySet: "capsed", text: "Caps lock", width: 80},
+			"tab": { key: "\t", text: "Tab", width: 60, classes: "control"},
+			"shiftl": { keySet: "shifted", text: "Shift", width: 100, classes: "control"},
+			"shiftr": { keySet: "shifted", text: "Shift", width: 100, classes: "control"},
+			"caps": { keySet: "capsed", text: "Caps lock", width: 80, classes: "control"},
 			"space": { key: " ", text: "Space", width: 180},
-			"enter": { key: "\r\n", text: "Enter", width: 80},
-			"backspace": { func: "backspace", classes: "fa fa-arrow-left", width: 80},
-			"accept": { func: "accept", text: "Close", classes: "featured"},
-			"next": { func: "next", text: "Next", classes: "featured"}
+			"enter": { key: "\r\n", text: "Enter", width: 80, classes: "control"},
+			"backspace": { func: "backspace", classes: "control backspace", width: 60},
+			"accept": { func: "accept", text: "Close", classes: "control featured"},
+			"next": { func: "next", text: "Next", classes: "control featured"}
 		},
 
 		default: [
@@ -41,13 +41,13 @@ module.exports = {
 	"compact": {
 
 		_meta: {
-			"default": { keySet: "default", text: "abc"},
-			"alpha": { keySet: "default", text: "Abc"},
-			"shift": { keySet: "shifted", text: "ABC"},
-			"numbers": { keySet: "numbers", text: "123"},
+			"default": { keySet: "default", text: "abc", classes: "control"},
+			"alpha": { keySet: "default", text: "Abc", classes: "control"},
+			"shift": { keySet: "shifted", text: "ABC", classes: "control"},
+			"numbers": { keySet: "numbers", text: "123", classes: "control"},
 			"space": { key: " ", text: "Space", width: 200},
-			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
-			"accept": { func: "accept", text: "Close", classes: "featured"},
+			"backspace": { func: "backspace", classes: "control"},
+			"accept": { func: "accept", text: "Close", classes: "control featured"},
 			"next": { func: "next", text: "Next", classes: "featured"},
 			"zero": { key: "0", width: 130}
 		},
@@ -55,8 +55,8 @@ module.exports = {
 		default: [
 			"q w e r t y u i o p",
 			" a s d f g h j k l ",
-			"{shift} z x c v b n m .",
-			"{numbers} - {space} {backspace} {next} {accept}"
+			"{shift} z x c v b n m {backspace}",
+			"{numbers} , {space} . {next} {accept}"
 		],
 
 		shifted: [
@@ -77,9 +77,9 @@ module.exports = {
 	"numeric": {
 
 		_meta: {
-			"backspace": { func: "backspace", classes: "fa fa-arrow-left"},
-			"accept": { func: "accept", text: "Close", classes: "featured"},
-			"next": { func: "next", text: "Next", classes: "featured"},
+			"backspace": { func: "backspace", classes: "control"},
+			"accept": { func: "accept", text: "Close", classes: "control featured"},
+			"next": { func: "next", text: "Next", classes: "control featured"},
 			"zero": { key: "0", width: 130}
 		},
 
