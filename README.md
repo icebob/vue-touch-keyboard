@@ -1,4 +1,4 @@
-# vue-touch-keyboard [![NPM version](https://img.shields.io/npm/v/vue-touch-generator.svg)](https://www.npmjs.com/package/vue-touch-generator)
+# vue-touch-keyboard [![NPM version](https://img.shields.io/npm/v/vue-touch-keyboard.svg)](https://www.npmjs.com/package/vue-touch-keyboard)
 Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Display
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f3594b30dd4489094730fa2babd7ba5)](https://www.codacy.com/app/mereg-norbert/vue-touch-keyboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=icebob/vue-touch-keyboard&amp;utm_campaign=Badge_Grade)
@@ -12,7 +12,7 @@ Virtual keyboard component for Vue.js v1.x.x. Designed to Raspberry Pi Touch Dis
 
 **Vue v2.x is not supported!**
 
-**The project is under heavy development. Not published on NPM. So if you would like to try install with `npm install icebob/vue-touch-keyboard`**
+**The project is under heavy development**
 
 ## Demo
 [JSFiddle demo](https://jsfiddle.net/icebob/88n7c1L8/)
