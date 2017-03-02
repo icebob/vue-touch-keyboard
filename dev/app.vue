@@ -3,7 +3,7 @@
 		fieldset
 			legend Layouts
 			select#layoutSelector(v-model="layout")
-				option(v-for="layout in allLayouts", :value="$key") {{ $key }}
+				option(v-for="(layout, key) in allLayouts", :value="key") {{ key }}
 
 		fieldset
 			legend Normal layout
@@ -88,7 +88,7 @@
 			}		 
 		},
 		
-		ready() {
+		mounted() {
 			window.app = this;
 			this.$nextTick(() => {
 				this.input = document.querySelector("input#text");
