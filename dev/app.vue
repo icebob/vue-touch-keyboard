@@ -1,27 +1,28 @@
 <template lang="jade">
-	.content(:class="{ hasKeyboard: visible }")
-		fieldset
-			legend Layouts
-			select#layoutSelector(v-model="layout")
-				option(v-for="(layout, key) in allLayouts", :value="key") {{ key }}
+	div
+		.content(:class="{ hasKeyboard: visible }")
+			fieldset
+				legend Layouts
+				select#layoutSelector(v-model="layout")
+					option(v-for="(layout, key) in allLayouts", :value="key") {{ key }}
 
-		fieldset
-			legend Normal layout
-			input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal")
+			fieldset
+				legend Normal layout
+				input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal")
 
-		fieldset
-			legend Compact layout
-			input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact", maxlength="5")
+			fieldset
+				legend Compact layout
+				input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact", maxlength="5")
 
-		fieldset
-			legend Numeric layout
-			input.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric")
+			fieldset
+				legend Numeric layout
+				input.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric")
 
-		fieldset
-			legend Password with compact layout
-			input.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
+			fieldset
+				legend Password with compact layout
+				input.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
 
-	vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input", :next="next", :options="options")
+		vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input", :next="next", :options="options")
 
 </template>
 

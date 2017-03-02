@@ -1,3 +1,12 @@
+<a name="0.2.0"></a>
+# 0.2.0 (2017-03-02)
+
+* migrate files to vue2 ([f512f34](https://github.com/icebob/vue-touch-keyboard/commit/f512f34))
+* skip typings ([fecca11](https://github.com/icebob/vue-touch-keyboard/commit/fecca11))
+* docs: fix npm link ([d4bb635](https://github.com/icebob/vue-touch-keyboard/commit/d4bb635))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2016-10-28)
 

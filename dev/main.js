@@ -5,7 +5,7 @@ import Vue from "vue";
 	let App = require("./App.vue");
 
 	let app = new Vue({
-		el: "body",
+		el: "app",
 		components: {
 			App
 		}

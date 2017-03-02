@@ -55,8 +55,11 @@ module.exports = {
 	},
 
 	resolve: {
-		packageAlias: "browser"
-	},
+		packageAlias: "browser",
+		alias: {
+			"vue$": "vue/dist/vue.common.js"
+		}
+	},	
 
 	vue: {
 		autoprefixer: {
