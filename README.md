@@ -107,10 +107,11 @@ Option      | Default  | Accepted values | Description
 Two languages are currently supported. More might be added soon.
 
 Here you can see list of languages and their supported layouts.
-Language |Language code   | Normal   |   Numeric    | Compact 
------------ |---------| -------- | --------------- | -----------
-English  |	-|&#10003;  | 	&#10003;    | 	&#10003; 
-Persian  |per |	&#10003;  | 		&#215;    |	&#215; 
+Language    |  Language code     | Normal   |   Numeric    | Compact 
+----------- |---------| -------- | ---------------| -----------
+English     |	-     |&#10003;  | 	&#10003;    | 	&#10003; 
+Persian     |per      |	&#10003; | 		&#215;  |	&#215; 
+
 How to use? You shoud change `data-layout` , this is the syntax:
 `Language code` + `_` + `Name of layout`
 
