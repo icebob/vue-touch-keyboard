@@ -28,16 +28,65 @@ module.exports = {
 			"{shiftl} Z X C V B N M < > ? {shiftr}",
 			"{next} {space} {accept}"
 		],
-		
+
 		capsed: [
 			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
 			"{tab} Q W E R T Y U I O P [ ] \\",
 			"{caps} A S D F G H J K L ; ' {enter}",
-			"{shiftl} Z X C V B N M , . / {shiftr}", 
+			"{shiftl} Z X C V B N M , . / {shiftr}",
 			"{next} {space} {accept}"
-		]		
+		]
 	},
-
+	per_normal : {
+           _meta: {
+				tab: {
+							key: "\t"
+							, text: "Tab"
+							, width: 60
+							, classes: "control"
+					}
+					, caps: {
+							keySet: "capsed"
+							, text: "Caps lock"
+							, width: 80
+							, classes: "control"
+					}
+					, space: {
+							key: " "
+							, text: "فاصله"
+							, width: 180
+					}
+					, enter: {
+							key: "\r\n"
+							, text: "Enter"
+							, width: 80
+							, classes: "control"
+					}
+					, backspace: {
+							func: "backspace"
+							, classes: "control backspace"
+							, width: 65
+					}
+					, accept: {
+							func: "accept"
+							, text: "بستن"
+							, classes: "control featured"
+					}
+					, next: {
+							func: "next"
+							, text: "بعدی"
+							, classes: "control featured"
+					},
+					 shiftl: {
+							keySet: "shifted"
+							, text: "تغییر"
+							, width: 100
+							, classes: "control"
+					}
+},
+			"default": ["` 1 2 3 4 5 6 7 8 9 0 - = {backspace}", "{tab} ض ص ث ق ف غ ع ه خ ح ج چ", "{caps} ش س ی ب ل ا ت ن م ک گ {enter}", "{shiftl} ؟ ظ ط ز ر ذ د و ، . پ ئ / ", "{next} {space} {accept}"] ,
+			shifted : ["~ ! @ # $ % ^ & * ( ) _ + {backspace}", "{tab} ض ص ث ق ف غ ع ه خ ح ج چ", "{caps} ش س ی ب ل ا ت ن م ک گ {enter}", "{shiftl} ؟ ظ ط ز ر ذ د و { } [ ] / ", "{next} {space} {accept}"]
+		},
 	"compact": {
 
 		_meta: {
