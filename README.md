@@ -103,6 +103,26 @@ Option      | Default  | Accepted values | Description
 * `numeric` - Only for numbers
 * `compact` - Compact layout. Similar as mobile phone keyboard layouts
 
+## Supported languages
+Two languages are currently supported. More might be added soon.
+
+Here you can see list of languages and their supported layouts.
+Language |Language code   | Normal   |   Numeric    | Compact 
+----------- |---------| -------- | --------------- | -----------
+English  |	-|&#10003;  | 	&#10003;    | 	&#10003; 
+Persian  |per |	&#10003;  | 		&#215;    |	&#215; 
+How to use? You shoud change `data-layout` , this is the syntax:
+`Language code` + `_` + `Name of layout`
+
+For English `Language code` is not needed just write the `Name of layout` .
+
+##### Example
+```
+// to use Persian
+<input type="text" placeholder="Text input" @focus="show" data-layout="per_normal" />
+
+```
+
 ## Development
 This command will start a `webpack-dev-server` with content of `dev` folder.
 ```bash
