@@ -120,6 +120,9 @@ For English `Language code` is not needed just write the `Name of layout` .
 
 ##### Example
 ```
+//to use English
+<input type="text" placeholder="Text input" @focus="show" data-layout="normal" />
+
 // to use Persian
 <input type="text" placeholder="Text input" @focus="show" data-layout="per_normal" />
 
