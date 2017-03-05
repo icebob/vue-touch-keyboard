@@ -76,8 +76,8 @@ module.exports = {
 							func: "next"
 							, text: "بعدی"
 							, classes: "control featured"
-					},
-					 shiftl: {
+					}
+					, shiftl: {
 							keySet: "shifted"
 							, text: "تغییر"
 							, width: 100
