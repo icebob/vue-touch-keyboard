@@ -104,8 +104,9 @@
 <style lang="sass">
 
 	html {
-		font-family: "Arial", sans-serif;
-		font-size: 16px;
+		font-family: "Roboto", sans-serif;
+		font-weight: 600;
+		font-size: 18px;
 	}
 
 	* {
@@ -138,10 +139,10 @@
 
 		padding: 1em;
 
-		background-color: #EEE;
-		box-shadow: 0px -3px 10px rgba(black, 0.3);
+		background-color: #d9d9d9;
+		// box-shadow: 0px -3px 10px rgba(black, 0.3);
 
-		border-radius: 10px;
+		// border-radius: 10px;
 	}	
 
 	fieldset {

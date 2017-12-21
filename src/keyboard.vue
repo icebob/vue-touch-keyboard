@@ -283,7 +283,7 @@
 	$width: 40;
 	$height: 2.2em;
 	$margin: 0.5em;
-	$radius: 0.35em;
+	// $radius: 0.35em;
 
 	.vue-touch-keyboard {
 
@@ -311,13 +311,12 @@
 				overflow: hidden;
 
 				vertical-align: middle;
-				border: 1px solid #ccc;
-				color: #333;
-				background-color: #fff;
-				box-shadow: 0px 2px 2px rgba(0, 0, 0, .6);
-				border-radius: $radius;
+				border: 4px solid #0055a6;
+				color: #fff;
+				background-color: #009bdb;
+				// border-radius: $radius;
 
-				font-size: 1.25em;
+				font-size: 2em;
 				text-align: center;
 				white-space: nowrap;
 				user-select: none;
@@ -337,27 +336,27 @@
 
 				&.control {
 					color: #fff;
-					background-color: #7d7d7d;
-					border-color: #656565;
+					background-color: #009bdb;
+					border-color: #0055a6;
 				}
 							
 				&.featured {
 					color: #fff;
-					background-color: #337ab7;
-					border-color: #2e6da4;
+					background-color: #009bdb;
+					border-color: #0055a6;
 				}
 
 				&:hover {
-					color: #333;
-					background-color: #d6d6d6;
-					border-color: #adadad;
+					color: #fff;
+					background-color: #0055a6;
+					border-color: #009bdb;
 				}
 				
 				&:active {
 					transform: scale(.98); // translateY(1px);
-					color: #333;
-					background-color: #d4d4d4;
-					border-color: #8c8c8c;					
+					color: #000;
+					background-color: #fff;
+					border-color: #0055a6;					
 				}
 
 				&.activated {
