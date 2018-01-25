@@ -5,6 +5,7 @@
 			.line(v-for="(line, index) in keySet", :key="index")
 				span(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="clickKey(key)", @mousedown="mousedown", :style="getKeyStyle(key)")
 
+
 </template>
 
 <script>
