@@ -1,5 +1,5 @@
 /**
- * vue-touch-keyboard v0.2.0
+ * vue-touch-keyboard v0.2.1
  * https://github.com/icebob/vue-touch-keyboard
  * Released under the MIT License.
  */
