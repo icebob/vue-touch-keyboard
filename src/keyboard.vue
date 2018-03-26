@@ -235,7 +235,7 @@
 					if (this.input.maxLength <= 0 || text.length < this.input.maxLength) {
 						if (this.options.useKbEvents) {
 							let e = document.createEvent("Event"); 
-							e.initEvent("keypress", true, true); 
+							e.initEvent("keydown", true, true);
 							e.which = e.keyCode = addChar.charCodeAt();
 							if (this.input.dispatchEvent(e)) {
 								text = this.insertChar(caret, text, addChar);
