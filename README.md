@@ -56,7 +56,8 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
       layout: "normal",
       input: null,
       options: {
-        useKbEvents: false
+        useKbEvents: false,
+        preventClickEvent: false
       }
     },
 
@@ -97,6 +98,7 @@ Property      | Default  | Accepted values | Description
 Option      | Default  | Accepted values | Description
 ----------- | -------- | --------------- | -----------
 `useKbEvents`  | `false`  | `boolean`    | If true, the component will generate a `keydown` event and trigger it. If it returns with `false`, it won't insert the new character.
+`preventClickEvent`  | `false`  | `boolean`    | If true, the component will `preventDefault` the click event.
 
 ## Built-in layouts
 * `normal` - Normal full layout. Similar as real keyboard layouts
