@@ -11,7 +11,7 @@
     "lint": "eslint --ext=.js,.vue src test/unit/specs",
     "coverall": "cat ./test/unit/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "coverage": "npm run test && npm run coverall",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
     "docs": "cd docs && gitbook serve",
     "unit": "karma start test/unit/karma.conf.js",
     "e2e": "node test/e2e/runner.js",

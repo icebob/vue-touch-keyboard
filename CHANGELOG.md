@@ -1,8 +1,33 @@
+<a name="0.3.0"></a>
+# 0.3.0 (2018-03-26)
+
+* :package: build & release ([4526c71](https://github.com/icebob/vue-touch-keyboard/commit/4526c71))
+* 0.3.0 ([77f79a3](https://github.com/icebob/vue-touch-keyboard/commit/77f79a3))
+* Feature - Prevent click event doc updated ([cefb1ab](https://github.com/icebob/vue-touch-keyboard/commit/cefb1ab))
+* Feature - Prevent click event option added ([8050b10](https://github.com/icebob/vue-touch-keyboard/commit/8050b10))
+* Fix - keypress event to keydown changed ([8bac388](https://github.com/icebob/vue-touch-keyboard/commit/8bac388))
+* keypress event to keydown updated ([29ab934](https://github.com/icebob/vue-touch-keyboard/commit/29ab934))
+* update node versions ([3ba60f3](https://github.com/icebob/vue-touch-keyboard/commit/3ba60f3))
+
+
+
+<a name="0.2.1"></a>
+## 0.2.1 (2018-01-26)
+
+* 0.2.1 ([a12df4c](https://github.com/icebob/vue-touch-keyboard/commit/a12df4c))
+* binded keys to prevent Vue console error ([e94d9bb](https://github.com/icebob/vue-touch-keyboard/commit/e94d9bb))
+* built dist version ([8298cef](https://github.com/icebob/vue-touch-keyboard/commit/8298cef))
+* push test ([256bd2b](https://github.com/icebob/vue-touch-keyboard/commit/256bd2b))
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2017-03-02)
 
+* :package: build for vue2 ([8c04f66](https://github.com/icebob/vue-touch-keyboard/commit/8c04f66))
 * migrate files to vue2 ([f512f34](https://github.com/icebob/vue-touch-keyboard/commit/f512f34))
 * skip typings ([fecca11](https://github.com/icebob/vue-touch-keyboard/commit/fecca11))
+* update readme ([b819b25](https://github.com/icebob/vue-touch-keyboard/commit/b819b25))
 * docs: fix npm link ([d4bb635](https://github.com/icebob/vue-touch-keyboard/commit/d4bb635))
 
 
@@ -11,16 +36,17 @@
 # 0.1.0 (2016-10-28)
 
 * :package:  build ([222e1d9](https://github.com/icebob/vue-touch-keyboard/commit/222e1d9))
-* :package: build ([eea3480](https://github.com/icebob/vue-touch-keyboard/commit/eea3480))
+* :package: build ([867731f](https://github.com/icebob/vue-touch-keyboard/commit/867731f))
+* :package: build ([3e56711](https://github.com/icebob/vue-touch-keyboard/commit/3e56711))
 * :package: build ([3daae1e](https://github.com/icebob/vue-touch-keyboard/commit/3daae1e))
-* :package: build ([75eeca4](https://github.com/icebob/vue-touch-keyboard/commit/75eeca4))
+* :package: build ([eea3480](https://github.com/icebob/vue-touch-keyboard/commit/eea3480))
 * :package: build ([b76287e](https://github.com/icebob/vue-touch-keyboard/commit/b76287e))
 * :package: build ([3fe74c3](https://github.com/icebob/vue-touch-keyboard/commit/3fe74c3))
 * :package: build ([3b6f746](https://github.com/icebob/vue-touch-keyboard/commit/3b6f746))
-* :package: build ([3e56711](https://github.com/icebob/vue-touch-keyboard/commit/3e56711))
-* :package: build ([867731f](https://github.com/icebob/vue-touch-keyboard/commit/867731f))
+* :package: build ([75eeca4](https://github.com/icebob/vue-touch-keyboard/commit/75eeca4))
 * add accept event handler ([a5f305b](https://github.com/icebob/vue-touch-keyboard/commit/a5f305b))
 * add asserts ([1d39a02](https://github.com/icebob/vue-touch-keyboard/commit/1d39a02))
+* add changelog ([0fd6255](https://github.com/icebob/vue-touch-keyboard/commit/0fd6255))
 * base library code ([0f6526a](https://github.com/icebob/vue-touch-keyboard/commit/0f6526a))
 * create base code ([e2d2a5b](https://github.com/icebob/vue-touch-keyboard/commit/e2d2a5b))
 * fix image markdown ([a33ddb9](https://github.com/icebob/vue-touch-keyboard/commit/a33ddb9))
