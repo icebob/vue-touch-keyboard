@@ -96,7 +96,7 @@ Property      | Default  | Accepted values | Description
 ## Options
 Option      | Default  | Accepted values | Description
 ----------- | -------- | --------------- | -----------
-`useKbEvents`  | `false`  | `boolean`    | If true, the component will generate a `keypress` event and trigger it. If it returns with `false`, it won't insert the new character.
+`useKbEvents`  | `false`  | `boolean`    | If true, the component will generate a `keydown` event and trigger it. If it returns with `false`, it won't insert the new character.
 
 ## Built-in layouts
 * `normal` - Normal full layout. Similar as real keyboard layouts
