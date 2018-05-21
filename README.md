@@ -93,6 +93,7 @@ Property      | Default  | Accepted values | Description
 `change`    | `null`  | `Function`     | Event handler. Fired when the input value changed.
 `next`      | `null`  | `Function`     | Event handler. Fired when the "Next" button pressed or the length of the value of the input reached the `maxLength` of the `input`
 `options`   | `{}`    | `Object`     | Functional options.
+`defaultKeySet`| `default` | `String`  | Default key set. You can choose a desired key set of your layout to be used when a keyboard is initialized.
 
 ## Options
 Option      | Default  | Accepted values | Description
