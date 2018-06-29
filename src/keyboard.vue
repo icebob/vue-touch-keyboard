@@ -262,7 +262,7 @@
 				}
 
 				// trigger 'input' Event
-        this.input.dispatchEvent(new Event('input', { bubbles: true }));
+				this.input.dispatchEvent(new Event('input', { bubbles: true }));
 
 			},
 			
