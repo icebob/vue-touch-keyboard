@@ -260,6 +260,7 @@
 					if (this.next)
 						this.next();
 				}
+                                this.input.dispatchEvent(new Event('input', { bubbles: true }));
 
 			},
 			
