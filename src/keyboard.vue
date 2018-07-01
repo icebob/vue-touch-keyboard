@@ -261,6 +261,9 @@
 						this.next();
 				}
 
+				// trigger 'input' Event
+				this.input.dispatchEvent(new Event('input', { bubbles: true }));
+
 			},
 			
 			setFocusToInput(caret) {
