@@ -13,6 +13,7 @@ Virtual keyboard component for Vue.js v2.x. Designed to Raspberry Pi Touch Displ
 
 ## Demo
 [JSFiddle demo](https://jsfiddle.net/icebob/88n7c1L8/)
+[Codepen demo](https://codepen.io/alvidr/pen/JBEmdR/)
 
 [![Screenshot](https://cloud.githubusercontent.com/assets/306521/19721016/d56005bc-9b70-11e6-8568-39dc207bc466.png)]()
 
