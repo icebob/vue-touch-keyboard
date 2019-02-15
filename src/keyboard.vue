@@ -17,6 +17,10 @@
 		props: {
 			input: [HTMLInputElement, HTMLTextAreaElement],
 			layout: [String, Object],
+			defaultKeySet: {
+				type: String,
+				default: "default",
+			},
 
 			accept: Function,
 			cancel: Function,
@@ -33,7 +37,7 @@
 		
 		data () {
 			return {
-				currentKeySet: "default",
+				currentKeySet: this.defaultKeySet,
 
 				inputScrollLeft: 0
 			};
