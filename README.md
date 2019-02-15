@@ -43,7 +43,7 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
 <template>
   <div>
     <input type="text" placeholder="Text input" @focus="show" data-layout="normal" />
-    <vue-touch-keyboard v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input" />
+    <vue-touch-keyboard :options="options" v-if="visible" :layout="layout" :cancel="hide" :accept="accept" :input="input" />
   </div>
 </template>
 
