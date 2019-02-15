@@ -15,7 +15,7 @@
 
 	export default {
 		props: {
-			input: HTMLInputElement,
+			input: [HTMLInputElement, HTMLTextAreaElement],
 			layout: [String, Object],
 			defaultKeySet: {
 				type: String,
@@ -264,6 +264,9 @@
 					if (this.next)
 						this.next();
 				}
+
+				// trigger 'input' Event
+				this.input.dispatchEvent(new Event('input', { bubbles: true }));
 
 			},
 			

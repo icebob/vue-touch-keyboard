@@ -11,8 +11,11 @@ Virtual keyboard component for Vue.js v2.x. Designed to Raspberry Pi Touch Displ
 [![devDependency Status](https://david-dm.org/icebob/vue-touch-keyboard/dev-status.svg)](https://david-dm.org/icebob/vue-touch-keyboard#info=devDependencies)
 [![Downloads](https://img.shields.io/npm/dt/vue-touch-keyboard.svg)](https://www.npmjs.com/package/vue-touch-keyboard)
 
+**If you like my work, please [donate](https://www.paypal.me/meregnorbert). Thank you!**
+
 ## Demo
 [JSFiddle demo](https://jsfiddle.net/icebob/88n7c1L8/)
+[Codepen demo](https://codepen.io/alvidr/pen/JBEmdR/)
 
 [![Screenshot](https://cloud.githubusercontent.com/assets/306521/19721016/d56005bc-9b70-11e6-8568-39dc207bc466.png)]()
 
@@ -40,7 +43,7 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
 <template>
   <div>
     <input type="text" placeholder="Text input" @focus="show" data-layout="normal" />
-    <vue-touch-keyboard v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input" />
+    <vue-touch-keyboard :options="options" v-if="visible" :layout="layout" :cancel="hide" :accept="accept" :input="input" />
   </div>
 </template>
 
