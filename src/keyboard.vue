@@ -15,7 +15,7 @@
 
 	export default {
 		props: {
-			input: HTMLInputElement,
+			input: [HTMLInputElement, HTMLTextAreaElement],
 			layout: [String, Object],
 
 			accept: Function,
