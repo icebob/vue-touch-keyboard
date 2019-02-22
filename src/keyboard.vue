@@ -95,7 +95,6 @@
 
 		watch: {
 			layout() {
-				console.log("Layout changed");
 				this.currentKeySet = "default";
 			}
 		},
@@ -185,7 +184,6 @@
 				if (this.options.preventClickEvent) e.preventDefault();
 
 				this.inputScrollLeft = this.input.scrollLeft;
-				//console.log("mousedown: ", this.input.scrollLeft, this.input.scrollWidth, this.input.clientWidth);
 			},
 
 			clickKey(e, key) {
