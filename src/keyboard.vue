@@ -3,7 +3,8 @@
 		// input(type="text", v-model="keyboardText", v-if="!input")
 		.keyboard
 			.line(v-for="(line, index) in keySet", :key="index")
-				span(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="e => clickKey(e, key)", @mousedown="mousedown", :style="getKeyStyle(key)")
+				div(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", :style="getKeyStyle(key)")
+					div(v-if="!key.placeholder" v-text="getCaptionOfKey(key)", @click="e => clickKey(e, key)", @mousedown="mousedown")
 
 
 </template>
@@ -316,72 +317,72 @@
 			}
 			
 			.key {
-				&:not(:last-child) {
+				flex: $width;
+
+				&.half {
+					flex: $width / 2;
+				}
+
+				> div {
+					height: $height;
+					line-height: $height;
+					overflow: hidden;
+
+					vertical-align: middle;
+					border: 1px solid #ccc;
+					color: #333;
+					background-color: #fff;
+					box-shadow: 0px 2px 2px rgba(0, 0, 0, .6);
+					border-radius: $radius;
+
+					font-size: 1.25em;
+					text-align: center;
+					white-space: nowrap;
+					user-select: none;
+					cursor: pointer;
+				}
+
+				&:not(:last-child) > div {
 					margin-right: $margin;
 				}
 
-				flex: $width;
-				//width: $btnW;
-				height: $height;
-				line-height: $height;
-				overflow: hidden;
-
-				vertical-align: middle;
-				border: 1px solid #ccc;
-				color: #333;
-				background-color: #fff;
-				box-shadow: 0px 2px 2px rgba(0, 0, 0, .6);
-				border-radius: $radius;
-
-				font-size: 1.25em;
-				text-align: center;
-				white-space: nowrap;
-				user-select: none;
-				cursor: pointer;
-
-
-				&.backspace {
+				&.backspace > div {
 					background-image: url("./icons/backspace.svg");
 					background-position: center center;
 					background-repeat: no-repeat;
 					background-size: 35%;
 				}
-			
-				&.half {
-					flex: $width / 2;
-				}
 
-				&.control {
+				&.control > div {
 					color: #fff;
 					background-color: #7d7d7d;
 					border-color: #656565;
 				}
 							
-				&.featured {
+				&.featured > div {
 					color: #fff;
 					background-color: #337ab7;
 					border-color: #2e6da4;
 				}
 
-				&:hover {
+				&:hover > div {
 					color: #333;
 					background-color: #d6d6d6;
 					border-color: #adadad;
 				}
 				
-				&:active {
+				&:active > div {
 					transform: scale(.98); // translateY(1px);
 					color: #333;
 					background-color: #d4d4d4;
 					border-color: #8c8c8c;					
 				}
 
-				&.activated {
+				&.activated > div {
 					color: #fff;
 					background-color: #5bc0de;
 					border-color: #46b8da;
 				}
-
 			} // .key
 			/*
 			// Apple style
@@ -425,10 +426,6 @@
 				flex: $width / 2;
 				height: $height;
 				line-height: $height;
-				
-				&:not(:last-child) {
-					margin-right: $margin;
-				}
 			}
 			
 			
