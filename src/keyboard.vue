@@ -311,6 +311,7 @@
 			.line {
 				display: flex;
 				justify-content: space-around;    
+				margin-right: -$margin;
 				&:not(:last-child) {
 					margin-bottom: $margin;
 				}
@@ -327,6 +328,7 @@
 					height: $height;
 					line-height: $height;
 					overflow: hidden;
+					margin-right: $margin;
 
 					vertical-align: middle;
 					border: 1px solid #ccc;
@@ -340,10 +342,6 @@
 					white-space: nowrap;
 					user-select: none;
 					cursor: pointer;
-				}
-
-				&:not(:last-child) > div {
-					margin-right: $margin;
 				}
 
 				&.backspace > div {
