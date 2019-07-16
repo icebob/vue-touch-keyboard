@@ -166,8 +166,12 @@
 			},
 
 			backspace(caret, text) {
-				text = text.substring(0, caret.start - 1) + text.substring(caret.start);
-				caret.start -= 1;
+				if (caret.start < caret.end) {
+					text = text.substring(0, caret.start) + text.substring(caret.end);
+				} else {
+					text = text.substring(0, caret.start - 1) + text.substring(caret.start);
+					caret.start -= 1;
+				}
 				caret.end = caret.start;
 				return text;
 			},
