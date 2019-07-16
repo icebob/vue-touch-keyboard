@@ -1,3 +1,31 @@
+<a name="0.3.2"></a>
+## 0.3.2 (2019-07-16)
+
+* 0.3.2 ([a051188](https://github.com/icebob/vue-touch-keyboard/commit/a051188))
+* Check for selection and insert character over selection. ([7132f6a](https://github.com/icebob/vue-touch-keyboard/commit/7132f6a))
+* Check selection and delete selected on backspace. ([d12cb79](https://github.com/icebob/vue-touch-keyboard/commit/d12cb79))
+* remove calls to console.log ([1e92752](https://github.com/icebob/vue-touch-keyboard/commit/1e92752))
+* update deps ([5b4a1e9](https://github.com/icebob/vue-touch-keyboard/commit/5b4a1e9))
+
+
+
+<a name="0.3.1"></a>
+## 0.3.1 (2019-02-15)
+
+* :package: build ([504336f](https://github.com/icebob/vue-touch-keyboard/commit/504336f))
+* 0.3.1 ([cff0281](https://github.com/icebob/vue-touch-keyboard/commit/cff0281))
+* Add TextArea Html Element to input types ([fa53e7b](https://github.com/icebob/vue-touch-keyboard/commit/fa53e7b))
+* Added the defaultKeySet property ([99fe2ee](https://github.com/icebob/vue-touch-keyboard/commit/99fe2ee))
+* Build ([b0ee6ed](https://github.com/icebob/vue-touch-keyboard/commit/b0ee6ed))
+* Change require("./App.vue"); to require("./app.vue"); ([c34c93e](https://github.com/icebob/vue-touch-keyboard/commit/c34c93e))
+* Change require("./App.vue"); to require("./app.vue"); ([15be384](https://github.com/icebob/vue-touch-keyboard/commit/15be384))
+* Fix errors in example code ([3d3caeb](https://github.com/icebob/vue-touch-keyboard/commit/3d3caeb))
+* fix lint ([a42216d](https://github.com/icebob/vue-touch-keyboard/commit/a42216d))
+* Update README.md ([beece74](https://github.com/icebob/vue-touch-keyboard/commit/beece74))
+* Update README.md ([78749ab](https://github.com/icebob/vue-touch-keyboard/commit/78749ab))
+
+
+
 <a name="0.3.0"></a>
 # 0.3.0 (2018-03-26)
 
