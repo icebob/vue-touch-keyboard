@@ -177,7 +177,11 @@
 			},
 
 			insertChar(caret, text, ch) {
-				text = text.substr(0, caret.start) + ch.toString() + text.substr(caret.start);
+				if (caret.start < caret.end) {
+					text = text.substring(0, caret.start)  + ch.toString() + text.substring(caret.end);
+				} else {
+					text = text.substr(0, caret.start) + ch.toString() + text.substr(caret.start);
+				}
 				caret.start += ch.length;
 				caret.end = caret.start;
 				return text;
