@@ -232,6 +232,10 @@
 							return;
 						}
 
+						default: {
+							this.$emit(key.func);
+						}
+
 						}
 					} else {
 						addChar = key.key;
