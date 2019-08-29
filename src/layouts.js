@@ -49,7 +49,7 @@ module.exports = {
 			"backspace": { func: "backspace", classes: "control"},
 			"accept": { func: "accept", text: "Close", classes: "control featured"},
 			"next": { func: "next", text: "Next", classes: "featured"},
-			"zero": { key: "0", width: 130}
+			"zero": { key: "0", width: 120}
 		},
 
 		default: [
@@ -80,7 +80,7 @@ module.exports = {
 			"backspace": { func: "backspace", classes: "control"},
 			"accept": { func: "accept", text: "Close", classes: "control featured"},
 			"next": { func: "next", text: "Next", classes: "control featured"},
-			"zero": { key: "0", width: 130}
+			"zero": { key: "0", width: 120}
 		},
 
 		default: [
