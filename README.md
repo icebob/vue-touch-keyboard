@@ -60,7 +60,8 @@ https://github.com/icebob/vue-touch-keyboard/archive/master.zip
       input: null,
       options: {
         useKbEvents: false,
-        preventClickEvent: false
+        preventClickEvent: false,
+        touchStart: false
       }
     },
 
@@ -103,6 +104,7 @@ Option      | Default  | Accepted values | Description
 ----------- | -------- | --------------- | -----------
 `useKbEvents`  | `false`  | `boolean`    | If true, the component will generate a `keydown` event and trigger it. If it returns with `false`, it won't insert the new character.
 `preventClickEvent`  | `false`  | `boolean`    | If true, the component will `preventDefault` the click event.
+`touchStart`  | `false`  | `boolean`    | If true, the component will respond to `touchStart` event on touch devices (this will trigger the key when finger touches the screen and not when it leaves it as a click event does). Desktop behaviour does not change.
 
 ## Built-in layouts
 * `normal` - Normal full layout. Similar as real keyboard layouts
