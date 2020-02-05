@@ -3,7 +3,7 @@
 		// input(type="text", v-model="keyboardText", v-if="!input")
 		.keyboard
 			.line(v-for="(line, index) in keySet", :key="index")
-				span(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="e => clickKey(e, key)", @mousedown="mousedown", :style="getKeyStyle(key)")
+				span(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", v-on="{ click: e => clickHandler(e, key), touchstart: e => clickHandler(e, key) }", @mousedown="mousedown", :style="getKeyStyle(key)")
 
 
 </template>
@@ -34,12 +34,11 @@
 				}
 			}
 		},
-		
+
 		data () {
 			return {
 				currentKeySet: this.defaultKeySet,
-
-				inputScrollLeft: 0
+				inputScrollLeft: 0,
 			};
 		},
 
@@ -48,7 +47,7 @@
 			keySet() {
 				let layout = this.getLayout();
 				if (!layout) return;
-				
+
 				let keySet = layout[this.currentKeySet];
 				if (!keySet) return;
 
@@ -75,7 +74,7 @@
 									row.push({
 										placeholder: true
 									});
-									
+
 								} else {
 									// Normal key
 									row.push({
@@ -90,7 +89,7 @@
 				});
 
 				return res;
-			}			
+			}
 		},
 
 		watch: {
@@ -106,21 +105,21 @@
 
 				return this.layout;
 			},
-			
+
 			changeKeySet(name) {
 				let layout = this.getLayout();
 				if (layout[name] != null)
 					this.currentKeySet = name;
 			},
-			
+
 			toggleKeySet(name) {
 				this.currentKeySet = this.currentKeySet == name ? "default" : name;
 			},
-			
+
 			getCaptionOfKey(key) {
 				return key.text || key.key || "";
 			},
-			
+
 			getClassesOfKey(key) {
 				if (key.placeholder)
 					return "placeholder";
@@ -134,14 +133,14 @@
 			},
 
 			getKeyStyle(key) {
-				if (key.width) 
+				if (key.width)
 					return {
 						flex: key.width
 					};
 			},
 
 			supportsSelection() {
-				return (/text|password|search|tel|url/).test(this.input.type); 
+				return (/text|password|search|tel|url/).test(this.input.type);
 			},
 
 			getCaret() {
@@ -194,13 +193,22 @@
 				this.inputScrollLeft = this.input.scrollLeft;
 			},
 
+			clickHandler(e, key) {
+				if (e.type === "touchstart" && this.options.touchStart) {
+					e.preventDefault();
+					this.clickKey(e, key);
+				} else if (e.type === "click") {
+					this.clickKey(e, key);
+				}
+			},
+
 			clickKey(e, key) {
 				if (!this.input) return;
 				if (this.options.preventClickEvent) e.preventDefault();
 
 				let caret = this.getCaret();
 				let text = this.input.value;
-				
+
 				let addChar = null;
 				if (typeof key == "object") {
 					if (key.keySet) {
@@ -248,7 +256,7 @@
 				if (addChar) {
 					if (this.input.maxLength <= 0 || text.length < this.input.maxLength) {
 						if (this.options.useKbEvents) {
-							let e = document.createEvent("Event"); 
+							let e = document.createEvent("Event");
 							e.initEvent("keydown", true, true);
 							e.which = e.keyCode = addChar.charCodeAt();
 							if (this.input.dispatchEvent(e)) {
@@ -257,7 +265,7 @@
 						} else {
 							text = this.insertChar(caret, text, addChar);
 						}
-					} 
+					}
 
 					if (this.currentKeySet == "shifted")
 						this.changeKeySet("default");
@@ -279,27 +287,27 @@
 				this.input.dispatchEvent(new Event("input", { bubbles: true }));
 
 			},
-			
+
 			setFocusToInput(caret) {
 				this.input.focus();
 				if (caret && this.supportsSelection()) {
 					this.input.selectionStart = caret.start;
 					this.input.selectionEnd = caret.end;
 				}
-			}			
+			}
 		},
 
 		mounted() {
 			if (this.input) {
 				this.setFocusToInput();
-			}			
+			}
 		}
 	};
-	
+
 </script>
 
 <style lang="sass">
-		
+
 	$width: 40;
 	$height: 2.2em;
 	$margin: 0.5em;
@@ -310,15 +318,15 @@
 		.keyboard {
 			width: 100%;
 			margin: 0;
-			
+
 			.line {
 				display: flex;
-				justify-content: space-around;    
+				justify-content: space-around;
 				&:not(:last-child) {
 					margin-bottom: $margin;
 				}
 			}
-			
+
 			.key {
 				&:not(:last-child) {
 					margin-right: $margin;
@@ -350,7 +358,7 @@
 					background-repeat: no-repeat;
 					background-size: 35%;
 				}
-			
+
 				&.half {
 					flex: $width / 2;
 				}
@@ -360,7 +368,7 @@
 					background-color: #7d7d7d;
 					border-color: #656565;
 				}
-							
+
 				&.featured {
 					color: #fff;
 					background-color: #337ab7;
@@ -372,12 +380,12 @@
 					background-color: #d6d6d6;
 					border-color: #adadad;
 				}
-				
+
 				&:active {
 					transform: scale(.98); // translateY(1px);
 					color: #333;
 					background-color: #d4d4d4;
-					border-color: #8c8c8c;					
+					border-color: #8c8c8c;
 				}
 
 				&.activated {
@@ -395,7 +403,7 @@
 				background: #eff0f2;
 				border-radius: 4px;
 				border-top: 1px solid #ddd;
-				box-shadow: 
+				box-shadow:
 					inset 0 0 25px #e8e8e8,
 					0 1px 0 #c3c3c3,
 					0 2px 0 #c9c9c9,
@@ -403,7 +411,7 @@
 				text-shadow: 0px 1px 0px #f5f5f5;
 
 				&.control {
-					box-shadow: 
+					box-shadow:
 						0 1px 0 #c3c3c3,
 						0 2px 0 #c9c9c9,
 						0 2px 3px #333;
@@ -423,19 +431,20 @@
 					box-shadow: inset 0 0 25px #ddd, 0 0 3px #333;
 					border-top: 1px solid #eee;
 				}
+
 			}*/
 
 			.placeholder {
 				flex: $width / 2;
 				height: $height;
 				line-height: $height;
-				
+
 				&:not(:last-child) {
 					margin-right: $margin;
 				}
 			}
-			
-			
+
+
 			&:before,
 			&:after {
 				content: "";
@@ -443,7 +452,7 @@
 			}
 			&:after {
 				clear: both;
-			}  
+			}
 		} // .keyboard
 
 	} // .vue-touch-keyboard
