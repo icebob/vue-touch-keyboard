@@ -42,8 +42,14 @@ module.exports = {
 			"{shiftl} Я Ч С М И Т Ь Б Ю , {shiftr}",
 			"{next} {space} {accept}"
 		],
-		
 		capsed: [
+			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
+			"{tab} Q W E R T Y U I O P [ ] \\",
+			"{caps} A S D F G H J K L ; ' {enter}",
+			"{shiftl} Z X C V B N M , . / {shiftr}", 
+			"{next} {space} {accept}"
+		],
+		capsed_ru: [
 			"Ё 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
 			"{tab} Й Ц У К Е Н Г Ш Щ З Х Ъ \\",
 			"{caps} Ф Ы В А П Р О Л Д Ж Э {enter}",
