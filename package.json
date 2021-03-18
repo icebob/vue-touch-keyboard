@@ -1,6 +1,6 @@
 {
   "name": "vue-touch-keyboard",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Virtual keyboard component for Vue.js",
   "homepage": "https://github.com/icebob/vue-touch-keyboard",
   "main": "dist/vue-touch-keyboard.js",
