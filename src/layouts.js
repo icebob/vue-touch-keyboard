@@ -64,15 +64,25 @@ module.exports = {
 			"next": { func: "next", text: "Next", classes: "featured"},
 			"zero": { key: "0", width: 130}
 		},
-
 		default: [
+			"q w e r t y u i o p",
+			" a s d f g h j k l ",
+			"{shift} z x c v b n m {backspace}",
+			"{numbers} , {space} . {next} {accept}"
+		],
+		default_ru: [
 			"й ц у к е н г ш щ з",
 			" ф ы в а п р о л д ",
 			"{shift} я ч с м и т ь {backspace}",
 			"{numbers} , {space} . {next} {accept}"
 		],
-
 		shifted: [
+			"Q W E R T Y U I O P",
+			" A S D F G H J K L ",
+			"{default} Z X C V B N M ",
+			"{numbers} _ {space} {backspace} {next} {accept}"
+		],
+		shifted_ru: [
 			"Й Ц У К Е Y U I O P",
 			" Ф Ы В А П Р О Л Д ",
 			"{default} Я Ч С М И Т Ь ",
