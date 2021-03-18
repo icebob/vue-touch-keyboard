@@ -21,6 +21,13 @@ module.exports = {
 			"{shiftl} z x c v b n m , . / {shiftr}",
 			"{next} {space} {accept}"
 		],
+		default_next_off: [
+			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
+			"{tab} q w e r t y u i o p [ ] \\",
+			"{caps} a s d f g h j k l ; ' {enter}",
+			"{shiftl} z x c v b n m , . / {shiftr}",
+			"{space} {accept}"
+		],
 		default_ru: [
 			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
 			"{tab} й ц у к е н г ш щ з х ъ \\",
