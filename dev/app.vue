@@ -51,7 +51,6 @@
 		data() {
 			return {
 				visible: false,
-				enterPressed: false,
 				allLayouts: VueTouchKeyboard.layouts,
 				layout: "mini",
 				input: null,
@@ -94,10 +93,6 @@
 					this.input.scrollIntoView();
 				});				
 			},
-
-			enter() {
-				this.enterPressed = true;
-			}
 		},
 		mounted() {
 			window.app = this;

@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Layouts from './layouts';
-import isString from 'lodash/isString';
-import isObject from 'lodash/isObject';
+import Layouts from "./layouts";
+import isString from "lodash/isString";
+import isObject from "lodash/isObject";
 
 export default {
   props: {
@@ -19,9 +19,8 @@ export default {
     layout: [String, Object],
     defaultKeySet: {
       type: String,
-      default: 'default'
+      default: "default"
     },
-
     accept: Function,
     cancel: Function,
     change: Function,
@@ -39,7 +38,7 @@ export default {
   data() {
     return {
       currentKeySet: this.defaultKeySet,
-      inputScrollLeft: 0
+      inputScrollLeft: 0,
     };
   },
 
@@ -53,24 +52,24 @@ export default {
 
       let res = [];
 
-      let meta = layout['_meta'] || {};
+      let meta = layout["_meta"] || {};
 
       keySet.forEach(line => {
         let row = [];
-        line.split(' ').forEach(item => {
+        line.split(" ").forEach(item => {
           if (isObject(item)) {
             row.push(item);
           } else if (isString(item)) {
             if (
               item.length > 2 &&
-              item[0] == '{' &&
-              item[item.length - 1] == '}'
+              item[0] == "{" &&
+              item[item.length - 1] == "}"
             ) {
               let name = item.substring(1, item.length - 1);
               if (meta[name]) row.push(meta[name]);
-              else console.warn('Missing named key from meta: ' + name);
+              else console.warn("Missing named key from meta: " + name);
             } else {
-              if (item == '') {
+              if (item == "") {
                 // Placeholder
                 row.push({
                   placeholder: true
@@ -94,7 +93,7 @@ export default {
 
   watch: {
     layout() {
-      this.currentKeySet = 'default';
+      this.currentKeySet = "default";
     }
   },
 
@@ -111,19 +110,19 @@ export default {
     },
 
     toggleKeySet(name) {
-      this.currentKeySet = this.currentKeySet == name ? 'default' : name;
+      this.currentKeySet = this.currentKeySet == name ? "default" : name;
     },
 
     getCaptionOfKey(key) {
-      return key.text || key.key || '';
+      return key.text || key.key || "";
     },
 
     getClassesOfKey(key) {
-      if (key.placeholder) return 'placeholder';
+      if (key.placeholder) return "placeholder";
       else {
-        let classes = 'key ' + (key.func || '') + ' ' + (key.classes || '');
+        let classes = "key " + (key.func || "") + " " + (key.classes || "");
         if (key.keySet && this.currentKeySet == key.keySet)
-          classes += ' activated';
+          classes += " activated";
 
         return classes;
       }
@@ -202,34 +201,35 @@ export default {
       let text = this.input.value;
 
       let addChar = null;
-      if (typeof key == 'object') {
+      if (typeof key == "object") {
         if (key.keySet) {
           this.toggleKeySet(key.keySet);
-        }
-        else if (key.func) {
+        } else if (key.func) {
           switch (key.func) {
-            case 'backspace': {
+            case "backspace": {
               text = this.backspace(caret, text);
               break;
             }
 
-            case 'accept': {
+            case "accept": {
               if (this.accept) this.accept(text);
               return;
             }
 
-            case 'cancel': {
+            case "cancel": {
               if (this.cancel) this.cancel();
               return;
             }
 
-            case 'next': {
+            case "next": {
               if (this.next) this.next();
               return;
             }
 
-            case 'enter': {
-              if (this.enter) this.enter();
+            case "enter": {
+              if (this.enter) {
+                this.enter();
+              }
               return;
             }
 
@@ -247,8 +247,8 @@ export default {
       if (addChar) {
         if (this.input.maxLength <= 0 || text.length < this.input.maxLength) {
           if (this.options.useKbEvents) {
-            let e = document.createEvent('Event');
-            e.initEvent('keydown', true, true);
+            let e = document.createEvent("Event");
+            e.initEvent("keydown", true, true);
             e.which = e.keyCode = addChar.charCodeAt();
             if (this.input.dispatchEvent(e)) {
               text = this.insertChar(caret, text, addChar);
@@ -258,7 +258,7 @@ export default {
           }
         }
 
-        if (this.currentKeySet == 'shifted') this.changeKeySet('default');
+        if (this.currentKeySet == "shifted") this.changeKeySet("default");
       }
 
       this.input.value = text;
@@ -272,7 +272,7 @@ export default {
       }
 
       // trigger 'input' Event
-      this.input.dispatchEvent(new Event('input', { bubbles: true }));
+      this.input.dispatchEvent(new Event("input", { bubbles: true }));
     },
 
     setFocusToInput(caret) {
