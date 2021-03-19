@@ -52,7 +52,7 @@
 			return {
 				visible: false,
 				allLayouts: VueTouchKeyboard.layouts,
-				layout: "mini",
+				layout: "normal",
 				input: null,
 				options: {
 					useKbEvents: true
@@ -93,6 +93,7 @@
 					this.input.scrollIntoView();
 				});				
 			},
+			enter() {},
 		},
 		mounted() {
 			window.app = this;

@@ -110,7 +110,7 @@ export default {
     },
 
     toggleKeySet(name) {
-      this.currentKeySet = this.currentKeySet == name ? "default" : name;
+      this.currentKeySet = this.currentKeySet == name ? this.currentKeySet : name;
     },
 
     getCaptionOfKey(key) {
@@ -258,7 +258,8 @@ export default {
           }
         }
 
-        if (this.currentKeySet == "shifted") this.changeKeySet("default");
+        // if (this.currentKeySet == "shifted") this.changeKeySet("default");
+        if (this.currentKeySet == "shifted") this.changeKeySet(this.currentKeySet);
       }
 
       this.input.value = text;

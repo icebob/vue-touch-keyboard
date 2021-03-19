@@ -1,6 +1,6 @@
 # vue-touch-keyboard [![NPM version](https://img.shields.io/npm/v/vue-touch-keyboard.svg)](https://www.npmjs.com/package/vue-touch-keyboard) ![VueJS v2.x compatible](https://img.shields.io/badge/vue%202.x-compatible-green.svg)
 
-Virtual keyboard component for Vue.js v2.x. Designed to Raspberry Pi Touch Display
+This is a fork of Virtual keyboard component for Vue.js v2.x. Designed to Raspberry Pi Touch Display
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f3594b30dd4489094730fa2babd7ba5)](https://www.codacy.com/app/mereg-norbert/vue-touch-keyboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=icebob/vue-touch-keyboard&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/icebob/vue-touch-keyboard.svg?branch=master)](https://travis-ci.org/icebob/vue-touch-keyboard)
@@ -10,8 +10,6 @@ Virtual keyboard component for Vue.js v2.x. Designed to Raspberry Pi Touch Displ
 [![Dependency Status](https://david-dm.org/icebob/vue-touch-keyboard.svg)](https://david-dm.org/icebob/vue-touch-keyboard)
 [![devDependency Status](https://david-dm.org/icebob/vue-touch-keyboard/dev-status.svg)](https://david-dm.org/icebob/vue-touch-keyboard#info=devDependencies)
 [![Downloads](https://img.shields.io/npm/dt/vue-touch-keyboard.svg)](https://www.npmjs.com/package/vue-touch-keyboard)
-
-**If you like my work, please [donate](https://www.paypal.me/meregnorbert). Thank you!**
 
 ## Demo
 [JSFiddle demo](https://jsfiddle.net/icebob/88n7c1L8/)
@@ -35,7 +33,7 @@ $ npm install vue-touch-keyboard
 ### Manual
 Download zip package and unpack and add the `vue-touch-keyboard.css` and `vue-touch-keyboard.js` file to your project from dist folder.
 ```
-https://github.com/icebob/vue-touch-keyboard/archive/master.zip
+https://github.com/vvxcoder/vue-touch-keyboard/archive/master.zip
 ```
 
 ## Usage
@@ -134,6 +132,6 @@ vue-touch-keyboard is available under the [MIT license](https://tldrlegal.com/li
 
 ## Contact
 
-Copyright (C) 2016 Icebob
+Copyright (C) 2021 Vvxcoder
 
 [![@icebob](https://img.shields.io/badge/github-icebob-green.svg)](https://github.com/icebob) [![@icebob](https://img.shields.io/badge/twitter-Icebobcsi-blue.svg)](https://twitter.com/Icebobcsi)
