@@ -2,7 +2,8 @@
 	.vue-touch-keyboard
 		.keyboard
 			.line(v-for="(line, index) in keySet", :key="index")
-				span(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="e => clickKey(e, key)", @mousedown="mousedown", :style="getKeyStyle(key)")
+				span(v-for="(key, index) in line", :key="index", :class="getClassesOfKey(key)", v-text="getCaptionOfKey(key)", @click="e => clickKey(e, key)", 
+					@mousedown="mousedown", :style="getKeyStyle(key)")
 
 
 </template>
@@ -25,6 +26,7 @@ export default {
     cancel: Function,
     change: Function,
     next: Function,
+    enter: Function,
 
     options: {
       type: Object,
@@ -37,7 +39,6 @@ export default {
   data() {
     return {
       currentKeySet: this.defaultKeySet,
-
       inputScrollLeft: 0
     };
   },
@@ -204,7 +205,8 @@ export default {
       if (typeof key == 'object') {
         if (key.keySet) {
           this.toggleKeySet(key.keySet);
-        } else if (key.func) {
+        }
+        else if (key.func) {
           switch (key.func) {
             case 'backspace': {
               text = this.backspace(caret, text);
@@ -223,6 +225,11 @@ export default {
 
             case 'next': {
               if (this.next) this.next();
+              return;
+            }
+
+            case 'enter': {
+              if (this.enter) this.enter();
               return;
             }
 
@@ -276,7 +283,6 @@ export default {
       }
     }
   },
-
   mounted() {
     if (this.input) {
       this.setFocusToInput();
