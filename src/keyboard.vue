@@ -51,11 +51,11 @@ export default {
       if (!keySet) return;
 
       let res = [];
-
       let meta = layout["_meta"] || {};
 
       keySet.forEach(line => {
         let row = [];
+
         line.split(" ").forEach(item => {
           if (isObject(item)) {
             row.push(item);
@@ -90,33 +90,29 @@ export default {
       return res;
     }
   },
-
   watch: {
     layout() {
       this.currentKeySet = "default";
     }
   },
-
   methods: {
     getLayout() {
-      if (isString(this.layout)) return Layouts[this.layout];
+      if (isString(this.layout)) {
+        return Layouts[this.layout];
+      }
 
       return this.layout;
     },
-
     changeKeySet(name) {
       let layout = this.getLayout();
       if (layout[name] != null) this.currentKeySet = name;
     },
-
     toggleKeySet(name) {
       this.currentKeySet = this.currentKeySet == name ? this.currentKeySet : name;
     },
-
     getCaptionOfKey(key) {
       return key.text || key.key || "";
     },
-
     getClassesOfKey(key) {
       if (key.placeholder) return "placeholder";
       else {
@@ -127,18 +123,15 @@ export default {
         return classes;
       }
     },
-
     getKeyStyle(key) {
       if (key.width)
         return {
           flex: key.width
         };
     },
-
     supportsSelection() {
       return /text|password|search|tel|url/.test(this.input.type);
     },
-
     getCaret() {
       if (this.supportsSelection()) {
         let pos = {
@@ -157,7 +150,6 @@ export default {
         };
       }
     },
-
     backspace(caret, text) {
       if (caret.start < caret.end) {
         text = text.substring(0, caret.start) + text.substring(caret.end);
@@ -168,7 +160,6 @@ export default {
       caret.end = caret.start;
       return text;
     },
-
     insertChar(caret, text, ch) {
       if (caret.start < caret.end) {
         text =
@@ -185,14 +176,12 @@ export default {
       caret.end = caret.start;
       return text;
     },
-
     mousedown(e) {
       if (!this.input) return;
       if (this.options.preventClickEvent) e.preventDefault();
 
       this.inputScrollLeft = this.input.scrollLeft;
     },
-
     clickKey(e, key) {
       if (!this.input) return;
       if (this.options.preventClickEvent) e.preventDefault();
@@ -212,28 +201,39 @@ export default {
             }
 
             case "accept": {
-              if (this.accept) this.accept(text);
+              if (this.accept) {
+                this.accept(text);
+                console.log('accept have been called with ', text);
+              } 
               return;
             }
 
             case "cancel": {
-              if (this.cancel) this.cancel();
+              if (this.cancel) {
+                this.cancel();
+                console.log('cancel have been called');
+              } 
               return;
             }
 
             case "next": {
-              if (this.next) this.next();
+              if (this.next) {
+                this.next();
+                console.log('next have been called');
+              }
               return;
             }
 
             case "enter": {
               if (this.enter) {
                 this.enter();
+                console.log('next have been called');
               }
               return;
             }
 
             default: {
+              console.log('emit key func');
               this.$emit(key.func);
             }
           }
@@ -276,7 +276,6 @@ export default {
       // trigger 'input' Event
       this.input.dispatchEvent(new Event("input", { bubbles: true }));
     },
-
     setFocusToInput(caret) {
       this.input.focus();
       if (caret && this.supportsSelection()) {
