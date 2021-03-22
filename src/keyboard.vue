@@ -241,6 +241,7 @@ export default {
           addChar = key.key;
         }
       } else {
+        console.log(key);
         addChar = key;
       }
 
