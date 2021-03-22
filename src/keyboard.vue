@@ -258,7 +258,6 @@ export default {
           }
         }
 
-        // if (this.currentKeySet == "shifted") this.changeKeySet("default");
         if (this.currentKeySet == "shifted") this.changeKeySet(this.currentKeySet);
       }
 
