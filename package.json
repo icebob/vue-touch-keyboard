@@ -1,6 +1,6 @@
 {
   "name": "fork-vue-touch-keyboard",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Fork of virtual keyboard component for Vue.js",
   "homepage": "https://github.com/vvxcoder/vue-touch-keyboard",
   "main": "dist/vue-touch-keyboard.js",

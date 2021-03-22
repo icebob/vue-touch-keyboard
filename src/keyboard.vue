@@ -266,11 +266,18 @@ export default {
       this.input.value = text;
       this.setFocusToInput(caret);
 
-      if (this.change) this.change(text, addChar);
+      if (this.change) {
+        this.change(text, addChar);
+        console.log('in change section');
+        console.log('text = ', text);
+        console.log('addChar = ', addChar);
+      }
 
       if (this.input.maxLength > 0 && text.length >= this.input.maxLength) {
         // The value reached the maxLength
-        if (this.next) this.next();
+        if (this.next) {
+          this.next();
+        }
       }
 
       // trigger 'input' Event
