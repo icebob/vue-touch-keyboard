@@ -238,10 +238,11 @@ export default {
             }
           }
         } else {
+          console.log('key 241 = ', key);
           addChar = key.key;
         }
       } else {
-        console.log(key);
+        console.log('key 244 = ', key);
         addChar = key;
       }
 
