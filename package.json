@@ -1,8 +1,8 @@
 {
-  "name": "vue-touch-keyboard",
-  "version": "0.3.2",
-  "description": "Virtual keyboard component for Vue.js",
-  "homepage": "https://github.com/icebob/vue-touch-keyboard",
+  "name": "fork-vue-touch-keyboard",
+  "version": "0.3.11",
+  "description": "Fork of virtual keyboard component for Vue.js",
+  "homepage": "https://github.com/vvxcoder/vue-touch-keyboard",
   "main": "dist/vue-touch-keyboard.js",
   "scripts": {
     "prebuild": "npm run test",
@@ -30,14 +30,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/icebob/vue-touch-keyboard.git"
+    "url": "https://github.com/vvxcoder/vue-touch-keyboard.git"
   },
   "files": [
     "dist/vue-touch-keyboard.js",
     "dist/vue-touch-keyboard.css",
     "src"
   ],
-  "author": "Icebob",
+  "author": "Vvxcoder",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",

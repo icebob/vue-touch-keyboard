@@ -11,18 +11,31 @@
 				input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal")
 
 			fieldset
+				legend Normal next_off layout
+				input#text.input(type="text", placeholder="Text input", @focus="show", data-layout="normal_next_off")
+
+			fieldset
 				legend Compact layout
 				input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact", maxlength="5")
+
+			fieldset
+				legend Compact next_off layout
+				input.input(type="text", placeholder="Text input", @focus="show", data-layout="compact_next_off", maxlength="5")
 
 			fieldset
 				legend Numeric layout
 				input.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric")
 
 			fieldset
+				legend Numeric next_off layout
+				input.input(type="number", placeholder="Number input", number, @focus="show", data-layout="numeric_next_off")
+
+			fieldset
 				legend Password with compact layout
 				input.input(type="password", placeholder="Password input", @focus="show", data-layout="compact")
 
-		vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :accept="accept", :input="input", :next="next", :options="options")
+		vue-touch-keyboard#keyboard(v-if="visible", :layout="layout", :cancel="hide", :enter="enter",
+									:accept="accept", :input="input", :next="next", :options="options")
 
 </template>
 
@@ -35,30 +48,24 @@
 	Vue.use(VueTouchKeyboard);
 
 	export default {
-
 		data() {
 			return {
 				visible: false,
 				allLayouts: VueTouchKeyboard.layouts,
-				//layout: VueTouchKeyboard.layouts["compact"],
-				layout: "mini",
+				layout: "normal",
 				input: null,
 				options: {
 					useKbEvents: true
-				}			
+				},
 			}
 		},
-
 		methods: {
 			hide() {
 				this.visible = false;
 			},	
-
 			accept(text) {
-				//alert("Input text: " + text);
 				this.hide();
 			},
-
 			next() {
 				let inputs = document.querySelectorAll("input");
 				let found = false;
@@ -75,7 +82,6 @@
 					this.hide();
 				}
 			},
-
 			show(e) {
 				this.input = e.target;
 				this.layout = e.target.dataset.layout;
@@ -86,23 +92,20 @@
 				this.$nextTick(() => {
 					this.input.scrollIntoView();
 				});				
-			}		 
+			},
+			enter() {},
 		},
-		
 		mounted() {
 			window.app = this;
 			this.$nextTick(() => {
 				this.input = document.querySelector("input#text");
 				this.input.focus();
-				//this.visible = true;
 			});
 		}
 	}
-
 </script>
 
 <style lang="sass">
-
 	html {
 		font-family: "Arial", sans-serif;
 		font-size: 16px;
@@ -115,12 +118,16 @@
 	}
 
 	.content {
+		display: flex;
+    	flex-wrap: wrap;
+
 		text-align: center;
-		position: absolute;
-		left: 0; right: 0; top: 0; bottom: 0;
 		overflow: auto;
 
 		&.hasKeyboard {
+			display: flex;
+    		flex-wrap: wrap;
+
 			bottom: 18em;
 		}
 	}
@@ -146,9 +153,10 @@
 
 	fieldset {
 		display: block;
+		height: 300px;
 		width: 300px;
 		padding: 15px;
-		margin: 15px auto;
+		margin: 10px;
 		border-style: solid;
 		background-color: #fff;
 		border-color: #ddd;
@@ -177,5 +185,4 @@
 			box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);			
 		}
 	}
-
 </style>
