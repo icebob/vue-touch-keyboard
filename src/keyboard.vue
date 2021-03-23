@@ -34,14 +34,12 @@ export default {
       }
     }
   },
-
   data() {
     return {
       currentKeySet: this.defaultKeySet,
       inputScrollLeft: 0,
     };
   },
-
   computed: {
     keySet() {
       let layout = this.getLayout();
@@ -105,7 +103,9 @@ export default {
     },
     changeKeySet(name) {
       let layout = this.getLayout();
-      if (layout[name] != null) this.currentKeySet = name;
+      if (layout[name] != null) {
+        this.currentKeySet = name;
+      }
     },
     toggleKeySet(name) {
       this.currentKeySet = this.currentKeySet == name ? this.currentKeySet : name;
@@ -117,8 +117,10 @@ export default {
       if (key.placeholder) return "placeholder";
       else {
         let classes = "key " + (key.func || "") + " " + (key.classes || "");
-        if (key.keySet && this.currentKeySet == key.keySet)
+
+        if (key.keySet && this.currentKeySet == key.keySet) {
           classes += " activated";
+        }
 
         return classes;
       }
@@ -190,6 +192,7 @@ export default {
       let text = this.input.value;
 
       let addChar = null;
+
       if (typeof key == "object") {
         if (key.keySet) {
           this.toggleKeySet(key.keySet);
@@ -257,6 +260,7 @@ export default {
             }
           } else {
             text = this.insertChar(caret, text, addChar);
+            console.log('text after call insertChar', text);
           }
         }
 

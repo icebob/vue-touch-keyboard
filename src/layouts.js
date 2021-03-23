@@ -80,7 +80,7 @@ module.exports = {
 			"{space} {accept}"
 		],
 		default_ru: [
-			"` 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
+			"ё 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
 			"{tab} й ц у к е н г ш щ з х ъ \\",
 			"{caps} ф ы в а п р о л д ж э {enter}",
 			"{shiftl} я ч с м и т ь б ю . {shiftr}",
