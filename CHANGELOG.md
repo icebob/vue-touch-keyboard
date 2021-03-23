@@ -1,6 +1,7 @@
-<a name="0.3.10"></a>
-## 0.3.10 (2021-03-23)
+<a name="0.3.11"></a>
+## 0.3.11 (2021-03-23)
 
+* Build v0.3.10. ([d4d0764](https://github.com/vvxcoder/vue-touch-keyboard/commit/d4d0764))
 * Build v0.3.5. ([ae4e654](https://github.com/vvxcoder/vue-touch-keyboard/commit/ae4e654))
 * Build v0.3.6. ([4e74177](https://github.com/vvxcoder/vue-touch-keyboard/commit/4e74177))
 * Build v0.3.7. ([f326c37](https://github.com/vvxcoder/vue-touch-keyboard/commit/f326c37))

@@ -254,9 +254,12 @@ export default {
           if (this.options.useKbEvents) {
             let e = document.createEvent("Event");
             e.initEvent("keydown", true, true);
+            console.log('line 256');
             e.which = e.keyCode = addChar.charCodeAt();
+            console.log('e in line 259 = ', e);
             if (this.input.dispatchEvent(e)) {
               text = this.insertChar(caret, text, addChar);
+              console.log('text after call insertChar in dispatch', text);
             }
           } else {
             text = this.insertChar(caret, text, addChar);
